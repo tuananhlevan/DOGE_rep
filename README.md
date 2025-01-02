@@ -1,2 +1,2 @@
 # DOGE
-Official implementation of "Modeling Multi-Task Model Merging as Adaptive Projective Gradient Descent".
+Our code is currently being organized and will be made publicly available after the paper is accepted.
