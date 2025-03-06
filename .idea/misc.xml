@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Black">
-    <option name="sdkName" value="Remote Python 3.10.16 (sftp://wyx@10.103.10.53:22/data/wyx/anaconda3/envs/fusion/bin/python)" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.10.16 (sftp://wyx@10.103.10.53:22/data/wyx/anaconda3/envs/fusion/bin/python)" project-jdk-type="Python SDK" />
-</project>
