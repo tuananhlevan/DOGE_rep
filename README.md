@@ -51,3 +51,12 @@ The project is structured as follows:
     modelpool=CLIPVisionModelPool/clip-vit-base-patch32_TA8 \
     taskpool=CLIPVisionModelTaskPool/clip-vit-classification_TA8
      ```
+## Citation
+If you find DOGE useful for your research and applications, please cite using this BibTeX:
+```bash
+@article{wei2025modeling,
+  title={Modeling multi-task model merging as adaptive projective gradient descent},
+  author={Wei, Yongxian and Tang, Anke and Shen, Li and Yuan, Chun and Cao, Xiaochun},
+  journal={arXiv preprint arXiv:2501.01230},
+  year={2025}
+}
