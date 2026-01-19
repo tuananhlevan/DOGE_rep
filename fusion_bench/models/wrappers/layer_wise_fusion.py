@@ -196,6 +196,8 @@ class LayerWiseMergedModel(nn.Module, Generic[TorchModelType]):
             m.requires_grad_(False)
 
         self.task_vectors = nn.ModuleList(finetuned_models)
+        
+        torch.save(self.task_vectors, "doge_am_L14.pt")
 
         # if `sparisty_ratio` is given, pruning the task vectors.
         if sparsity_ratio is not None:

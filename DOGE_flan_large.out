@@ -1,0 +1,446 @@
+nohup: ignoring input
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.programs.fabric_fusion_program.FabricModelFusionProgram(fabric= │
+│ {'loggers': {'_target_': 'lightning.fabric.loggers.TensorBoardLogger',       │
+│ 'root_dir': 'outputs/logs', 'name': 'lightning_logs', 'version': None,       │
+│ 'sub_dir': None, 'default_hp_metric': False}, '_target_':                    │
+│ 'lightning.Fabric', '_recursive_': True, 'devices': 1, 'strategy': 'auto',   │
+│ 'accelerator': 'auto'}, modelpool={'_target_':                               │
+│ 'fusion_bench.modelpool.Seq2SeqLMPool', '_recursive_': False, '_version_':   │
+│ '0.2', 'models': {'_pretrained_': {'_target_':                               │
+│ 'transformers.AutoModelForSeq2SeqLM.from_pretrained',                        │
+│ 'pretrained_model_name_or_path': 'google/flan-t5-large'}, 'glue-cola':       │
+│ {'_target_': 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',  │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-cola_lora-16'}, 'glue-mnli': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-mnli_lora-16'}, 'glue-mrpc': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-mrpc_lora-16'}, 'glue-qnli': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-qnli_lora-16'}, 'glue-qqp': {'_target_':        │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-qqp_lora-16'}, 'glue-rte': {'_target_':         │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-rte_lora-16'}, 'glue-sst2': {'_target_':        │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-sst2_lora-16'}, 'glue-stsb': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-stsb_lora-16'}}, 'tokenizer': {'_target_':      │
+│ 'transformers.AutoTokenizer.from_pretrained',                                │
+│ 'pretrained_model_name_or_path': 'google/flan-t5-large'}, 'model_kwargs':    │
+│ None, 'base_model': 'google/flan-t5-large'}, method={'_target_':             │
+│ 'fusion_bench.method.DOGE_TA_Algorithm', 'subspace': 6, 'K': 30, 'lamda':    │
+│ 0.07}, taskpool={'name': 'flan-t5_glue_text_generation', 'type':             │
+│ 'FlanT5GLUETextGenerationTaskPool', 'tasks': [{'name': 'cola', 'dataset':    │
+│ {'name': 'cola', 'split': 'validation'}}, {'name': 'mnli', 'dataset':        │
+│ {'name': 'mnli', 'split': 'validation_matched'}}, {'name': 'mrpc',           │
+│ 'dataset': {'name': 'mrpc', 'split': 'validation'}}, {'name': 'qnli',        │
+│ 'dataset': {'name': 'qnli', 'split': 'validation'}}, {'name': 'qqp',         │
+│ 'dataset': {'name': 'qqp', 'split': 'validation'}}, {'name': 'rte',          │
+│ 'dataset': {'name': 'rte', 'split': 'validation'}}, {'name': 'sst2',         │
+│ 'dataset': {'name': 'sst2', 'split': 'validation'}}, {'name': 'stsb',        │
+│ 'dataset': {'name': 'stsb', 'split': 'validation'}}], 'tokenizer':           │
+│ 'google/flan-t5-base', 'cache_dir': 'outputs/cache', 'batch_size': 32,       │
+│ 'num_workers': 4, 'fast_dev_run': False}, fast_dev_run=False, dry_run=False, │
+│ print_config=True, merged_model_save_path=None,                              │
+│ merged_model_save_kwargs=None, report_save_path=None,                        │
+│ print_function_call=True)                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+CONFIG
+├── method
+│   └── _target_: fusion_bench.method.DOGE_TA_Algorithm                         
+│       subspace: 6                                                             
+│       K: 30                                                                   
+│       lamda: 0.07                                                             
+│                                                                               
+├── modelpool
+│   └── _target_: fusion_bench.modelpool.Seq2SeqLMPool                          
+│       _recursive_: false                                                      
+│       _version_: '0.2'                                                        
+│       models:                                                                 
+│         _pretrained_:                                                         
+│           _target_: transformers.AutoModelForSeq2SeqLM.from_pretrained        
+│           pretrained_model_name_or_path: google/flan-t5-large                 
+│         glue-cola:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-cola_lora-16           
+│         glue-mnli:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-mnli_lora-16           
+│         glue-mrpc:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-mrpc_lora-16           
+│         glue-qnli:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-qnli_lora-16           
+│         glue-qqp:                                                             
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-qqp_lora-16            
+│         glue-rte:                                                             
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-rte_lora-16            
+│         glue-sst2:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-sst2_lora-16           
+│         glue-stsb:                                                            
+│           _target_: fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_mode
+│           base_model_path: google/flan-t5-large                               
+│           peft_model_path: tanganke/flan-t5-large_glue-stsb_lora-16           
+│       tokenizer:                                                              
+│         _target_: transformers.AutoTokenizer.from_pretrained                  
+│         pretrained_model_name_or_path: google/flan-t5-large                   
+│       model_kwargs: null                                                      
+│       base_model: google/flan-t5-large                                        
+│                                                                               
+├── taskpool
+│   └── name: flan-t5_glue_text_generation                                      
+│       type: FlanT5GLUETextGenerationTaskPool                                  
+│       tasks:                                                                  
+│       - name: cola                                                            
+│         dataset:                                                              
+│           name: cola                                                          
+│           split: validation                                                   
+│       - name: mnli                                                            
+│         dataset:                                                              
+│           name: mnli                                                          
+│           split: validation_matched                                           
+│       - name: mrpc                                                            
+│         dataset:                                                              
+│           name: mrpc                                                          
+│           split: validation                                                   
+│       - name: qnli                                                            
+│         dataset:                                                              
+│           name: qnli                                                          
+│           split: validation                                                   
+│       - name: qqp                                                             
+│         dataset:                                                              
+│           name: qqp                                                           
+│           split: validation                                                   
+│       - name: rte                                                             
+│         dataset:                                                              
+│           name: rte                                                           
+│           split: validation                                                   
+│       - name: sst2                                                            
+│         dataset:                                                              
+│           name: sst2                                                          
+│           split: validation                                                   
+│       - name: stsb                                                            
+│         dataset:                                                              
+│           name: stsb                                                          
+│           split: validation                                                   
+│       tokenizer: google/flan-t5-base                                          
+│       cache_dir: outputs/cache                                                
+│       batch_size: 32                                                          
+│       num_workers: 4                                                          
+│       fast_dev_run: false                                                     
+│                                                                               
+├── _target_
+│   └── FabricModelFusionProgram                                                
+├── _recursive_
+│   └── False                                                                   
+├── _usage_
+│   └── None                                                                    
+├── _version_
+│   └── None                                                                    
+├── fabric
+│   └── loggers:                                                                
+│         _target_: lightning.fabric.loggers.TensorBoardLogger                  
+│         root_dir: outputs/logs                                                
+│         name: lightning_logs                                                  
+│         version: null                                                         
+│         sub_dir: null                                                         
+│         default_hp_metric: false                                              
+│       _target_: lightning.Fabric                                              
+│       _recursive_: true                                                       
+│       devices: 1                                                              
+│       strategy: auto                                                          
+│       accelerator: auto                                                       
+│                                                                               
+├── fast_dev_run
+│   └── False                                                                   
+└── seed
+    └── None                                                                    
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ lightning.fabric.loggers.tensorboard.TensorBoardLogger(root_dir='outputs/log │
+│ s', name='lightning_logs', version=None, sub_dir=None,                       │
+│ default_hp_metric=False)                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ lightning.fabric.fabric.Fabric(loggers=<lightning.fabric.loggers.tensorboard │
+│ .TensorBoardLogger object at 0x7b281837c4d0>, devices=1, strategy='auto',    │
+│ accelerator='auto')                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+You are using a CUDA device ('NVIDIA A30') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[01/19/26 02:45:17] INFO     Running the model      fabric_fusion_program.py:221
+                             fusion program.                                    
+                    INFO     loading model pool     fabric_fusion_program.py:223
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.Seq2SeqLMPool(_version_='0.2',   │
+│ models={'_pretrained_': {'_target_':                                         │
+│ 'transformers.AutoModelForSeq2SeqLM.from_pretrained',                        │
+│ 'pretrained_model_name_or_path': 'google/flan-t5-large'}, 'glue-cola':       │
+│ {'_target_': 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',  │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-cola_lora-16'}, 'glue-mnli': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-mnli_lora-16'}, 'glue-mrpc': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-mrpc_lora-16'}, 'glue-qnli': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-qnli_lora-16'}, 'glue-qqp': {'_target_':        │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-qqp_lora-16'}, 'glue-rte': {'_target_':         │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-rte_lora-16'}, 'glue-sst2': {'_target_':        │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-sst2_lora-16'}, 'glue-stsb': {'_target_':       │
+│ 'fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model',               │
+│ 'base_model_path': 'google/flan-t5-large', 'peft_model_path':                │
+│ 'tanganke/flan-t5-large_glue-stsb_lora-16'}}, tokenizer={'_target_':         │
+│ 'transformers.AutoTokenizer.from_pretrained',                                │
+│ 'pretrained_model_name_or_path': 'google/flan-t5-large'}, model_kwargs=None, │
+│ base_model='google/flan-t5-large')                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+                    WARNING  Unused argument:                serialization.py:56
+                             base_model=google/flan-t5-large                    
+                    INFO     loading method         fabric_fusion_program.py:228
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.method.DOGE_TA.DOGE_TA.DOGE_TA_Algorithm(subspace=6, K=30,      │
+│ lamda=0.07)                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+                    INFO     loading task pool      fabric_fusion_program.py:234
+                    WARNING  No '_target_' key      fabric_fusion_program.py:101
+                             found in config.                                   
+                             Attempting to                                      
+                             instantiate the object                             
+                             in a compatible way.                               
+╭───────────────────────── instantiate compat object ──────────────────────────╮
+│ name: flan-t5_glue_text_generation                                           │
+│ type: FlanT5GLUETextGenerationTaskPool                                       │
+│ tasks:                                                                       │
+│ - name: cola                                                                 │
+│   dataset:                                                                   │
+│     name: cola                                                               │
+│     split: validation                                                        │
+│ - name: mnli                                                                 │
+│   dataset:                                                                   │
+│     name: mnli                                                               │
+│     split: validation_matched                                                │
+│ - name: mrpc                                                                 │
+│   dataset:                                                                   │
+│     name: mrpc                                                               │
+│     split: validation                                                        │
+│ - name: qnli                                                                 │
+│   dataset:                                                                   │
+│     name: qnli                                                               │
+│     split: validation                                                        │
+│ - name: qqp                                                                  │
+│   dataset:                                                                   │
+│     name: qqp                                                                │
+│     split: validation                                                        │
+│ - name: rte                                                                  │
+│   dataset:                                                                   │
+│     name: rte                                                                │
+│     split: validation                                                        │
+│ - name: sst2                                                                 │
+│   dataset:                                                                   │
+│     name: sst2                                                               │
+│     split: validation                                                        │
+│ - name: stsb                                                                 │
+│   dataset:                                                                   │
+│     name: stsb                                                               │
+│     split: validation                                                        │
+│ tokenizer: google/flan-t5-base                                               │
+│ cache_dir: outputs/cache                                                     │
+│ batch_size: 32                                                               │
+│ num_workers: 4                                                               │
+│ fast_dev_run: false                                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+[01/19/26 02:45:18] INFO     Fusing models using DOGE_TA with     DOGE_TA.py:187
+                             learnable delta.                                   
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ transformers.models.auto.auto_factory._BaseAutoModelClass.from_pretrained(pr │
+│ etrained_model_name_or_path='google/flan-t5-large')                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-cola_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-mnli_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-mrpc_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-qnli_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-qqp_lora-16')                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-rte_lora-16')                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-sst2_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Instantiate by calling function ───────────────────────╮
+│ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
+│ 'google/flan-t5-large',                                                      │
+│ peft_model_path='tanganke/flan-t5-large_glue-stsb_lora-16')                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Computed SVD for encoder.embed_tokens.weight...
+Computed SVD for encoder.block.0.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.0.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.0.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.0.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight...
+Computed SVD for encoder.block.0.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.0.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.0.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.1.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.1.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.1.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.1.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.1.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.1.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.1.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.2.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.2.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.2.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.2.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.2.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.2.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.2.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.3.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.3.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.3.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.3.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.3.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.3.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.3.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.4.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.4.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.4.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.4.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.4.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.4.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.4.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.5.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.5.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.5.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.5.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.5.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.5.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.5.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.6.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.6.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.6.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.6.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.6.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.6.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.6.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.7.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.7.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.7.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.7.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.7.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.7.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.7.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.8.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.8.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.8.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.8.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.8.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.8.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.8.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.9.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.9.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.9.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.9.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.9.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.9.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.9.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.10.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.10.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.10.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.10.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.10.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.10.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.10.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.11.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.11.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.11.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.11.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.11.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.11.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.11.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.12.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.12.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.12.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.12.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.12.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.12.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.12.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.13.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.13.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.13.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.13.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.13.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.13.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.13.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.14.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.14.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.14.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.14.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.14.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.14.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.14.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.15.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.15.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.15.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.15.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.15.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.15.layer.1.DenseReluDense.wi_1.weight...
+Computed SVD for encoder.block.15.layer.1.DenseReluDense.wo.weight...
+Computed SVD for encoder.block.16.layer.0.SelfAttention.q.weight...
+Computed SVD for encoder.block.16.layer.0.SelfAttention.k.weight...
+Computed SVD for encoder.block.16.layer.0.SelfAttention.v.weight...
+Computed SVD for encoder.block.16.layer.0.SelfAttention.o.weight...
+Computed SVD for encoder.block.16.layer.1.DenseReluDense.wi_0.weight...
+Computed SVD for encoder.block.16.layer.1.DenseReluDense.wi_1.weight...

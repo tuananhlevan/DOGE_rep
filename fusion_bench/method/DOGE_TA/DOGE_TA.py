@@ -258,7 +258,7 @@ class DOGE_TA_Algorithm(
             )
             layer_vectors_scale = layer_vectors * layer_lamdas.view(-1, 1, 1)
             task_vectors[0][layer_name] = layer_vectors_scale.sum(dim=0)
-
+            
         final_state_dict = {}
         pretrained_sd = pretrained_model.state_dict(keep_vars=True)
         for k, v in pretrained_sd.items():

@@ -30,6 +30,7 @@ def _load_glue_dataset(name, tokenizer):
     dataset = dataset.map(
         preprocessor,
         batched=True,
+        batch_size=32,
         remove_columns=dataset["train"].column_names,
         num_proc=1,
     )
