@@ -16,26 +16,26 @@ models:
     merge_and_unload: true
   eurosat:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
-    base_model_name: openai/clip-vit-base-patch16
+    base_model_name: openai/clip-vit-base-patch32
     peft_name: 
     merge_and_unload: true
   svhn:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
-    base_model_name: openai/clip-vit-base-patch16
+    base_model_name: openai/clip-vit-base-patch32
     peft_name: 
     merge_and_unload: true
   gtsrb:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
-    base_model_name: openai/clip-vit-base-patch16
+    base_model_name: openai/clip-vit-base-patch32
     peft_name: 
     merge_and_unload: true
   mnist:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
-    base_model_name: openai/clip-vit-base-patch16
+    base_model_name: openai/clip-vit-base-patch32
     peft_name: 
     merge_and_unload: true
   dtd:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
-    base_model_name: openai/clip-vit-base-patch16
+    base_model_name: openai/clip-vit-base-patch32
     peft_name: 
     merge_and_unload: true
