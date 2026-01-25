@@ -182,11 +182,10 @@ CONFIG
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭────────────────────── Instantiate by calling function ───────────────────────╮
 │ lightning.fabric.fabric.Fabric(loggers=<lightning.fabric.loggers.tensorboard │
-│ .TensorBoardLogger object at 0x7b281837c4d0>, devices=1, strategy='auto',    │
+│ .TensorBoardLogger object at 0x785c0c6f7d90>, devices=1, strategy='auto',    │
 │ accelerator='auto')                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-You are using a CUDA device ('NVIDIA A30') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
-[01/19/26 02:45:17] INFO     Running the model      fabric_fusion_program.py:221
+[01/25/26 05:05:59] INFO     Running the model      fabric_fusion_program.py:221
                              fusion program.                                    
                     INFO     loading model pool     fabric_fusion_program.py:223
 ╭────────────────────── Instantiate by calling function ───────────────────────╮
@@ -278,12 +277,13 @@ You are using a CUDA device ('NVIDIA A30') that has Tensor Cores. To properly ut
 │ fast_dev_run: false                                                          │
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-[01/19/26 02:45:18] INFO     Fusing models using DOGE_TA with     DOGE_TA.py:187
+                    INFO     Fusing models using DOGE_TA with     DOGE_TA.py:187
                              learnable delta.                                   
 ╭────────────────────── Instantiate by calling function ───────────────────────╮
 │ transformers.models.auto.auto_factory._BaseAutoModelClass.from_pretrained(pr │
 │ etrained_model_name_or_path='google/flan-t5-large')                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+[01/25/26 05:06:00] INFO     Start computing task vectors         DOGE_TA.py:191
 ╭────────────────────── Instantiate by calling function ───────────────────────╮
 │ fusion_bench.modelpool.seq2seq_lm.modelpool.load_lora_model(base_model_path= │
 │ 'google/flan-t5-large',                                                      │
@@ -324,123 +324,515 @@ You are using a CUDA device ('NVIDIA A30') that has Tensor Cores. To properly ut
 │ 'google/flan-t5-large',                                                      │
 │ peft_model_path='tanganke/flan-t5-large_glue-stsb_lora-16')                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Computed SVD for encoder.embed_tokens.weight...
-Computed SVD for encoder.block.0.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.0.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.0.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.0.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight...
-Computed SVD for encoder.block.0.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.0.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.0.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.1.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.1.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.1.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.1.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.1.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.1.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.1.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.2.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.2.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.2.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.2.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.2.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.2.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.2.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.3.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.3.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.3.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.3.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.3.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.3.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.3.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.4.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.4.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.4.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.4.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.4.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.4.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.4.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.5.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.5.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.5.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.5.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.5.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.5.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.5.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.6.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.6.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.6.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.6.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.6.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.6.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.6.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.7.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.7.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.7.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.7.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.7.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.7.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.7.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.8.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.8.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.8.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.8.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.8.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.8.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.8.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.9.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.9.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.9.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.9.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.9.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.9.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.9.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.10.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.10.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.10.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.10.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.10.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.10.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.10.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.11.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.11.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.11.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.11.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.11.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.11.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.11.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.12.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.12.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.12.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.12.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.12.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.12.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.12.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.13.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.13.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.13.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.13.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.13.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.13.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.13.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.14.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.14.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.14.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.14.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.14.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.14.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.14.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.15.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.15.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.15.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.15.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.15.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.15.layer.1.DenseReluDense.wi_1.weight...
-Computed SVD for encoder.block.15.layer.1.DenseReluDense.wo.weight...
-Computed SVD for encoder.block.16.layer.0.SelfAttention.q.weight...
-Computed SVD for encoder.block.16.layer.0.SelfAttention.k.weight...
-Computed SVD for encoder.block.16.layer.0.SelfAttention.v.weight...
-Computed SVD for encoder.block.16.layer.0.SelfAttention.o.weight...
-Computed SVD for encoder.block.16.layer.1.DenseReluDense.wi_0.weight...
-Computed SVD for encoder.block.16.layer.1.DenseReluDense.wi_1.weight...
+[01/25/26 05:08:07] INFO     Start computing layer lambdas        DOGE_TA.py:194
+[01/25/26 05:08:13] INFO     Computing projection                 DOGE_TA.py:196
+[01/25/26 05:09:12] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.embed_tokens.weight                        
+[01/25/26 05:17:29] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 05:19:34] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 05:21:37] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 05:23:38] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 05:25:24] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.0.SelfAttentio               
+                             n.relative_attention_bias.weight                   
+[01/25/26 05:25:46] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 05:29:07] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 05:32:24] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.0.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 05:35:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 05:37:33] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 05:39:34] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 05:41:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 05:43:43] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 05:47:02] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 05:50:23] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.1.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 05:53:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 05:55:41] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 05:57:47] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 05:59:55] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 06:02:12] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 06:05:37] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 06:08:57] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.2.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 06:12:04] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 06:14:10] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 06:16:06] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 06:17:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 06:19:20] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 06:21:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 06:23:44] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.3.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 06:25:40] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 06:27:02] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 06:28:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 06:29:53] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 06:31:20] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 06:33:34] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 06:35:44] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.4.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 06:37:41] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 06:39:04] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 06:40:29] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 06:41:55] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 06:43:23] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 06:45:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 06:47:39] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.5.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 06:49:37] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 06:51:06] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 06:52:30] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 06:53:59] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 06:55:33] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 06:57:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 07:00:12] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.6.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 07:02:21] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 07:03:46] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 07:05:12] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 07:06:41] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 07:08:14] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 07:10:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 07:12:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.7.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 07:15:01] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 07:16:29] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 07:17:58] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 07:19:27] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 07:20:57] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 07:23:08] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 07:25:20] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.8.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 07:27:19] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.0.SelfAttentio               
+                             n.q.weight                                         
+[01/25/26 07:28:40] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.0.SelfAttentio               
+                             n.k.weight                                         
+[01/25/26 07:30:03] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.0.SelfAttentio               
+                             n.v.weight                                         
+[01/25/26 07:31:25] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.0.SelfAttentio               
+                             n.o.weight                                         
+[01/25/26 07:32:53] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.1.DenseReluDen               
+                             se.wi_0.weight                                     
+[01/25/26 07:35:08] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.1.DenseReluDen               
+                             se.wi_1.weight                                     
+[01/25/26 07:37:24] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.9.layer.1.DenseReluDen               
+                             se.wo.weight                                       
+[01/25/26 07:39:25] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 07:40:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 07:42:17] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 07:43:43] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 07:45:13] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 07:47:31] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 07:49:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.10.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 07:51:53] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 07:53:19] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 07:54:45] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 07:56:10] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 07:57:44] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:00:01] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:02:23] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.11.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 08:04:26] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 08:05:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 08:07:19] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 08:08:48] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 08:10:20] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:12:24] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:14:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.12.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 08:16:16] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 08:17:33] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 08:18:51] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 08:20:08] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 08:21:34] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:23:37] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:25:36] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.13.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 08:27:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 08:28:44] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 08:30:00] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 08:31:17] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 08:32:40] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:34:45] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:36:46] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.14.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 08:38:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 08:39:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 08:41:11] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 08:42:27] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 08:43:51] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:45:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:47:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.15.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 08:49:42] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 08:51:01] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 08:52:21] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 08:53:40] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 08:55:05] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 08:57:05] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 08:59:06] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.16.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:00:56] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 09:02:13] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 09:03:28] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 09:04:45] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 09:06:03] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 09:08:06] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 09:10:13] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.17.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:12:07] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 09:13:26] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 09:14:47] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 09:16:10] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 09:17:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 09:19:36] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 09:21:37] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.18.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:23:31] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 09:24:52] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 09:26:09] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 09:27:27] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 09:28:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 09:30:53] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 09:32:58] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.19.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:34:47] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 09:36:07] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 09:37:23] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 09:38:44] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 09:40:10] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 09:42:20] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 09:44:40] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.20.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:46:49] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 09:48:16] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 09:49:45] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 09:51:14] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 09:52:46] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 09:55:07] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 09:57:19] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.21.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 09:59:19] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 10:00:43] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 10:02:08] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 10:03:32] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 10:05:03] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 10:07:14] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 10:09:31] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.22.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 10:11:35] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.0.SelfAttenti               
+                             on.q.weight                                        
+[01/25/26 10:13:04] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.0.SelfAttenti               
+                             on.k.weight                                        
+[01/25/26 10:14:29] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.0.SelfAttenti               
+                             on.v.weight                                        
+[01/25/26 10:15:58] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.0.SelfAttenti               
+                             on.o.weight                                        
+[01/25/26 10:17:27] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.1.DenseReluDe               
+                             nse.wi_0.weight                                    
+[01/25/26 10:19:45] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.1.DenseReluDe               
+                             nse.wi_1.weight                                    
+[01/25/26 10:22:05] INFO     Computed SVD for                     DOGE_TA.py:204
+                             encoder.block.23.layer.1.DenseReluDe               
+                             nse.wo.weight                                      
+[01/25/26 10:24:01] INFO     Start optimizing task vectors        DOGE_TA.py:229

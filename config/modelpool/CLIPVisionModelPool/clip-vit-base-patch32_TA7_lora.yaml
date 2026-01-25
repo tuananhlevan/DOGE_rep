@@ -7,35 +7,35 @@ models:
   stanford-cars:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars
     merge_and_unload: true
   resisc45:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45
     merge_and_unload: true
   eurosat:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat
     merge_and_unload: true
   svhn:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn
     merge_and_unload: true
   gtsrb:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb
     merge_and_unload: true
   mnist:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist
     merge_and_unload: true
   dtd:
     _target_: fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf
     base_model_name: openai/clip-vit-base-patch32
-    peft_name: 
+    peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd
     merge_and_unload: true

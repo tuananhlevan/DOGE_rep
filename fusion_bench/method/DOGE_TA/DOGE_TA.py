@@ -188,16 +188,20 @@ class DOGE_TA_Algorithm(
         with self.profile("load model"):
             pretrained_model = modelpool.load_model("_pretrained_")
 
+        log.info("Start computing task vectors")
         task_vectors = self.compute_task_vectors(modelpool, pretrained_model)
 
+        log.info("Start computing layer lambdas")
         self.lamdas = self.compute_layer_lamdas(task_vectors)
+        log.info("Computing projection")
         self.projection = {}
         for layer_name in task_vectors[0].keys():
             for i, vector in enumerate(task_vectors):
                 layer_vector = vector[layer_name].to(self.device)
                 u, s, v = torch.linalg.svd(layer_vector, full_matrices=False)
                 if i == 0:
-                    print(f"Computed SVD for {layer_name}...")
+                    # print(f"Computed SVD for {layer_name}...")
+                    log.info(f"Computed SVD for {layer_name}")
                     sum_u = torch.zeros_like(u, device=layer_vector.device)
                     sum_s = torch.zeros_like(s, device=layer_vector.device)
                     sum_v = torch.zeros_like(v, device=layer_vector.device)
@@ -222,6 +226,7 @@ class DOGE_TA_Algorithm(
             )
             self.projection[layer_name] = layer_proj
 
+        log.info("Start optimizing task vectors")
         self.optimize_delta(task_vectors)
 
         del self.projection
