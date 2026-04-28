@@ -1,1564 +1,0 @@
-nohup: ignoring input
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.programs.fabric_fusion_program.FabricModelFusionProgram(fabric= │
-│ {'loggers': {'_target_': 'lightning.fabric.loggers.TensorBoardLogger',       │
-│ 'root_dir': 'outputs/logs', 'name': 'lightning_logs', 'version': None,       │
-│ 'sub_dir': None, 'default_hp_metric': False}, '_target_':                    │
-│ 'lightning.Fabric', '_recursive_': True, 'devices': 1, 'strategy': 'auto',   │
-│ 'accelerator': 'auto'}, modelpool={'_target_':                               │
-│ 'fusion_bench.modelpool.CLIPVisionModelPool', 'models': {'_pretrained_':     │
-│ {'_target_':                                                                 │
-│ 'fusion_bench.models.linearized.vision_model.load_fft_vision_model_hf',      │
-│ 'model_name': 'openai/clip-vit-base-patch32'}, 'stanford-cars': {'_target_': │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars', 'merge_and_unload':     │
-│ True}, 'resisc45': {'_target_':                                              │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45', 'merge_and_unload': True},   │
-│ 'eurosat': {'_target_':                                                      │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat', 'merge_and_unload': True},    │
-│ 'svhn': {'_target_':                                                         │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn', 'merge_and_unload': True},       │
-│ 'gtsrb': {'_target_':                                                        │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb', 'merge_and_unload': True},      │
-│ 'mnist': {'_target_':                                                        │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist', 'merge_and_unload': True},      │
-│ 'dtd': {'_target_':                                                          │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd', 'merge_and_unload': True}}},      │
-│ method={'_target_': 'fusion_bench.method.DOGE_TA_Algorithm', 'subspace': 6,  │
-│ 'K': 30, 'lamda': 0.07}, taskpool={'_target_':                               │
-│ 'fusion_bench.taskpool.CLIPVisionModelTaskPool', '_recursive_': False,       │
-│ 'test_datasets': {'stanford-cars': {'_target_': 'datasets.load_dataset',     │
-│ 'path': 'tanganke/stanford_cars', 'split': 'test'}, 'resisc45': {'_target_': │
-│ 'datasets.load_dataset', 'path': 'tanganke/resisc45', 'split': 'test'},      │
-│ 'eurosat': {'_target_': 'datasets.load_dataset', 'path': 'tanganke/eurosat', │
-│ 'split': 'test'}, 'svhn': {'_target_': 'datasets.load_dataset', '_args_':    │
-│ ['svhn', 'cropped_digits'], 'split': 'test'}, 'gtsrb': {'_target_':          │
-│ 'datasets.load_dataset', 'path': 'tanganke/gtsrb', 'split': 'test'},         │
-│ 'mnist': {'_target_': 'datasets.load_dataset', 'path': 'mnist', 'split':     │
-│ 'test'}, 'dtd': {'_target_': 'datasets.load_dataset', 'path':                │
-│ 'tanganke/dtd', 'split': 'test'}}, 'base_model':                             │
-│ 'openai/clip-vit-base-patch32', 'clip_model': {'_target_':                   │
-│ 'transformers.CLIPModel.from_pretrained', 'pretrained_model_name_or_path':   │
-│ 'openai/clip-vit-base-patch32'}, 'processor': {'_target_':                   │
-│ 'transformers.CLIPProcessor.from_pretrained',                                │
-│ 'pretrained_model_name_or_path': 'openai/clip-vit-base-patch32'},            │
-│ 'data_processor': {'_target_': 'transformers.CLIPProcessor.from_pretrained', │
-│ 'pretrained_model_name_or_path': 'openai/clip-vit-base-patch32'},            │
-│ 'dataloader_kwargs': {'batch_size': 128, 'num_workers': 8, 'pin_memory':     │
-│ True, 'drop_last': False, 'shuffle': False}, 'layer_wise_feature_save_path': │
-│ None, 'layer_wise_feature_first_token_only': True,                           │
-│ 'layer_wise_feature_max_num': 1000}, fast_dev_run=False, dry_run=False,      │
-│ print_config=True, merged_model_save_path=None,                              │
-│ merged_model_save_kwargs=None, report_save_path=None,                        │
-│ print_function_call=True)                                                    │
-╰──────────────────────────────────────────────────────────────────────────────╯
-CONFIG
-├── method
-│   └── _target_: fusion_bench.method.DOGE_TA_Algorithm                         
-│       subspace: 6                                                             
-│       K: 30                                                                   
-│       lamda: 0.07                                                             
-│                                                                               
-├── modelpool
-│   └── _target_: fusion_bench.modelpool.CLIPVisionModelPool                    
-│       models:                                                                 
-│         _pretrained_:                                                         
-│           _target_: fusion_bench.models.linearized.vision_model.load_fft_visio
-│           model_name: openai/clip-vit-base-patch32                            
-│         stanford-cars:                                                        
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars        
-│           merge_and_unload: true                                              
-│         resisc45:                                                             
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45             
-│           merge_and_unload: true                                              
-│         eurosat:                                                              
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat              
-│           merge_and_unload: true                                              
-│         svhn:                                                                 
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn                 
-│           merge_and_unload: true                                              
-│         gtsrb:                                                                
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb                
-│           merge_and_unload: true                                              
-│         mnist:                                                                
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist                
-│           merge_and_unload: true                                              
-│         dtd:                                                                  
-│           _target_: fusion_bench.models.linearized.vision_model.load_lora_visi
-│           base_model_name: openai/clip-vit-base-patch32                       
-│           peft_name: hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd                  
-│           merge_and_unload: true                                              
-│                                                                               
-├── taskpool
-│   └── _target_: fusion_bench.taskpool.CLIPVisionModelTaskPool                 
-│       _recursive_: false                                                      
-│       test_datasets:                                                          
-│         stanford-cars:                                                        
-│           _target_: datasets.load_dataset                                     
-│           path: tanganke/stanford_cars                                        
-│           split: test                                                         
-│         resisc45:                                                             
-│           _target_: datasets.load_dataset                                     
-│           path: tanganke/resisc45                                             
-│           split: test                                                         
-│         eurosat:                                                              
-│           _target_: datasets.load_dataset                                     
-│           path: tanganke/eurosat                                              
-│           split: test                                                         
-│         svhn:                                                                 
-│           _target_: datasets.load_dataset                                     
-│           _args_:                                                             
-│           - svhn                                                              
-│           - cropped_digits                                                    
-│           split: test                                                         
-│         gtsrb:                                                                
-│           _target_: datasets.load_dataset                                     
-│           path: tanganke/gtsrb                                                
-│           split: test                                                         
-│         mnist:                                                                
-│           _target_: datasets.load_dataset                                     
-│           path: mnist                                                         
-│           split: test                                                         
-│         dtd:                                                                  
-│           _target_: datasets.load_dataset                                     
-│           path: tanganke/dtd                                                  
-│           split: test                                                         
-│       base_model: openai/clip-vit-base-patch32                                
-│       clip_model:                                                             
-│         _target_: transformers.CLIPModel.from_pretrained                      
-│         pretrained_model_name_or_path: openai/clip-vit-base-patch32           
-│       processor:                                                              
-│         _target_: transformers.CLIPProcessor.from_pretrained                  
-│         pretrained_model_name_or_path: openai/clip-vit-base-patch32           
-│       data_processor:                                                         
-│         _target_: transformers.CLIPProcessor.from_pretrained                  
-│         pretrained_model_name_or_path: openai/clip-vit-base-patch32           
-│       dataloader_kwargs:                                                      
-│         batch_size: 128                                                       
-│         num_workers: 8                                                        
-│         pin_memory: true                                                      
-│         drop_last: false                                                      
-│         shuffle: false                                                        
-│       layer_wise_feature_save_path: null                                      
-│       layer_wise_feature_first_token_only: true                               
-│       layer_wise_feature_max_num: 1000                                        
-│                                                                               
-├── _target_
-│   └── FabricModelFusionProgram                                                
-├── _recursive_
-│   └── False                                                                   
-├── _usage_
-│   └── None                                                                    
-├── _version_
-│   └── None                                                                    
-├── fabric
-│   └── loggers:                                                                
-│         _target_: lightning.fabric.loggers.TensorBoardLogger                  
-│         root_dir: outputs/logs                                                
-│         name: lightning_logs                                                  
-│         version: null                                                         
-│         sub_dir: null                                                         
-│         default_hp_metric: false                                              
-│       _target_: lightning.Fabric                                              
-│       _recursive_: true                                                       
-│       devices: 1                                                              
-│       strategy: auto                                                          
-│       accelerator: auto                                                       
-│                                                                               
-├── fast_dev_run
-│   └── False                                                                   
-└── seed
-    └── None                                                                    
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ lightning.fabric.loggers.tensorboard.TensorBoardLogger(root_dir='outputs/log │
-│ s', name='lightning_logs', version=None, sub_dir=None,                       │
-│ default_hp_metric=False)                                                     │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ lightning.fabric.fabric.Fabric(loggers=<lightning.fabric.loggers.tensorboard │
-│ .TensorBoardLogger object at 0x7e39e697b290>, devices=1, strategy='auto',    │
-│ accelerator='auto')                                                          │
-╰──────────────────────────────────────────────────────────────────────────────╯
-You are using a CUDA device ('NVIDIA A30') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
-[01/19/26 12:07:41] INFO     Running the model      fabric_fusion_program.py:221
-                             fusion program.                                    
-                    INFO     loading model pool     fabric_fusion_program.py:223
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.modelpool.clip_vision.modelpool.CLIPVisionModelPool(models={'_p │
-│ retrained_': {'_target_':                                                    │
-│ 'fusion_bench.models.linearized.vision_model.load_fft_vision_model_hf',      │
-│ 'model_name': 'openai/clip-vit-base-patch32'}, 'stanford-cars': {'_target_': │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars', 'merge_and_unload':     │
-│ True}, 'resisc45': {'_target_':                                              │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45', 'merge_and_unload': True},   │
-│ 'eurosat': {'_target_':                                                      │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat', 'merge_and_unload': True},    │
-│ 'svhn': {'_target_':                                                         │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn', 'merge_and_unload': True},       │
-│ 'gtsrb': {'_target_':                                                        │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb', 'merge_and_unload': True},      │
-│ 'mnist': {'_target_':                                                        │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist', 'merge_and_unload': True},      │
-│ 'dtd': {'_target_':                                                          │
-│ 'fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf',     │
-│ 'base_model_name': 'openai/clip-vit-base-patch32', 'peft_name':              │
-│ 'hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd', 'merge_and_unload': True}})       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-                    INFO     loading method         fabric_fusion_program.py:228
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.method.DOGE_TA.DOGE_TA.DOGE_TA_Algorithm(subspace=6, K=30,      │
-│ lamda=0.07)                                                                  │
-╰──────────────────────────────────────────────────────────────────────────────╯
-                    INFO     loading task pool      fabric_fusion_program.py:234
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.taskpool.clip_vision.taskpool.CLIPVisionModelTaskPool(test_data │
-│ sets={'stanford-cars': {'_target_': 'datasets.load_dataset', 'path':         │
-│ 'tanganke/stanford_cars', 'split': 'test'}, 'resisc45': {'_target_':         │
-│ 'datasets.load_dataset', 'path': 'tanganke/resisc45', 'split': 'test'},      │
-│ 'eurosat': {'_target_': 'datasets.load_dataset', 'path': 'tanganke/eurosat', │
-│ 'split': 'test'}, 'svhn': {'_target_': 'datasets.load_dataset', '_args_':    │
-│ ['svhn', 'cropped_digits'], 'split': 'test'}, 'gtsrb': {'_target_':          │
-│ 'datasets.load_dataset', 'path': 'tanganke/gtsrb', 'split': 'test'},         │
-│ 'mnist': {'_target_': 'datasets.load_dataset', 'path': 'mnist', 'split':     │
-│ 'test'}, 'dtd': {'_target_': 'datasets.load_dataset', 'path':                │
-│ 'tanganke/dtd', 'split': 'test'}},                                           │
-│ base_model='openai/clip-vit-base-patch32', clip_model={'_target_':           │
-│ 'transformers.CLIPModel.from_pretrained', 'pretrained_model_name_or_path':   │
-│ 'openai/clip-vit-base-patch32'}, processor={'_target_':                      │
-│ 'transformers.CLIPProcessor.from_pretrained',                                │
-│ 'pretrained_model_name_or_path': 'openai/clip-vit-base-patch32'},            │
-│ data_processor={'_target_': 'transformers.CLIPProcessor.from_pretrained',    │
-│ 'pretrained_model_name_or_path': 'openai/clip-vit-base-patch32'},            │
-│ dataloader_kwargs={'batch_size': 128, 'num_workers': 8, 'pin_memory': True,  │
-│ 'drop_last': False, 'shuffle': False}, layer_wise_feature_save_path=None,    │
-│ layer_wise_feature_first_token_only=True, layer_wise_feature_max_num=1000)   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-                    WARNING  Unused argument:                serialization.py:56
-                             base_model=openai/clip-vit-base                    
-                             -patch32                                           
-                    INFO     Fusing models using DOGE_TA with     DOGE_TA.py:187
-                             learnable delta.                                   
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_fft_vision_model_hf(model_n │
-│ ame='openai/clip-vit-base-patch32')                                          │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars',               │
-│ merge_and_unload=True)                                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45',                    │
-│ merge_and_unload=True)                                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat',                     │
-│ merge_and_unload=True)                                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn', merge_and_unload=True) │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb',                       │
-│ merge_and_unload=True)                                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist',                       │
-│ merge_and_unload=True)                                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ fusion_bench.models.linearized.vision_model.load_lora_vision_model_hf(base_m │
-│ odel_name='openai/clip-vit-base-patch32',                                    │
-│ peft_name='hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd', merge_and_unload=True)  │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Computed SVD for encoder.layers.0.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.0.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.0.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.0.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.0.mlp.fc1.weight...
-Computed SVD for encoder.layers.0.mlp.fc2.weight...
-Computed SVD for encoder.layers.1.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.1.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.1.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.1.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.1.mlp.fc1.weight...
-Computed SVD for encoder.layers.1.mlp.fc2.weight...
-Computed SVD for encoder.layers.2.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.2.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.2.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.2.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.2.mlp.fc1.weight...
-Computed SVD for encoder.layers.2.mlp.fc2.weight...
-Computed SVD for encoder.layers.3.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.3.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.3.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.3.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.3.mlp.fc1.weight...
-Computed SVD for encoder.layers.3.mlp.fc2.weight...
-Computed SVD for encoder.layers.4.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.4.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.4.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.4.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.4.mlp.fc1.weight...
-Computed SVD for encoder.layers.4.mlp.fc2.weight...
-Computed SVD for encoder.layers.5.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.5.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.5.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.5.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.5.mlp.fc1.weight...
-Computed SVD for encoder.layers.5.mlp.fc2.weight...
-Computed SVD for encoder.layers.6.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.6.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.6.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.6.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.6.mlp.fc1.weight...
-Computed SVD for encoder.layers.6.mlp.fc2.weight...
-Computed SVD for encoder.layers.7.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.7.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.7.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.7.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.7.mlp.fc1.weight...
-Computed SVD for encoder.layers.7.mlp.fc2.weight...
-Computed SVD for encoder.layers.8.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.8.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.8.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.8.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.8.mlp.fc1.weight...
-Computed SVD for encoder.layers.8.mlp.fc2.weight...
-Computed SVD for encoder.layers.9.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.9.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.9.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.9.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.9.mlp.fc1.weight...
-Computed SVD for encoder.layers.9.mlp.fc2.weight...
-Computed SVD for encoder.layers.10.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.10.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.10.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.10.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.10.mlp.fc1.weight...
-Computed SVD for encoder.layers.10.mlp.fc2.weight...
-Computed SVD for encoder.layers.11.self_attn.k_proj.weight...
-Computed SVD for encoder.layers.11.self_attn.v_proj.weight...
-Computed SVD for encoder.layers.11.self_attn.q_proj.weight...
-Computed SVD for encoder.layers.11.self_attn.out_proj.weight...
-Computed SVD for encoder.layers.11.mlp.fc1.weight...
-Computed SVD for encoder.layers.11.mlp.fc2.weight...
-Running time: 116.65484356880188 s
-Memory usage: 721.7509765625 MB
-Optimization completed.
-Profiler Report
-
-------------------------------------------------------------------------------------------------------------------
-|  Action    	|  Mean duration (s)	|  Num calls      	|  Total time (s) 	|  Percentage %   	|
-------------------------------------------------------------------------------------------------------------------
-|  Total     	|  -              	|  1              	|  196.59         	|  100 %          	|
-------------------------------------------------------------------------------------------------------------------
-|  load model	|  2.3861         	|  1              	|  2.3861         	|  1.2138         	|
-------------------------------------------------------------------------------------------------------------------
-
-No save path specified for the merged model. Skipping saving.
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ transformers.processing_utils.ProcessorMixin.from_pretrained(pretrained_mode │
-│ l_name_or_path='openai/clip-vit-base-patch32')                               │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ transformers.processing_utils.ProcessorMixin.from_pretrained(pretrained_mode │
-│ l_name_or_path='openai/clip-vit-base-patch32')                               │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ transformers.modeling_utils.PreTrainedModel.from_pretrained(pretrained_model │
-│ _name_or_path='openai/clip-vit-base-patch32')                                │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='tanganke/stanford_cars', split='test')      │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='tanganke/resisc45', split='test')           │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='tanganke/eurosat', split='test')            │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset('svhn', 'cropped_digits', split='test')           │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='tanganke/gtsrb', split='test')              │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='mnist', split='test')                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────── Instantiate by calling function ───────────────────────╮
-│ datasets.load.load_dataset(path='tanganke/dtd', split='test')                │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Evaluating tasks:   0%|          | 0/7 [00:00<?, ?it/s]
-Evaluating stanford-cars:   0%|          | 0/63 [00:00<?, ?it/s][A/mnt/disk1/aiotlab/envs/DOGE/lib/python3.11/site-packages/torchmetrics/utilities/prints.py:43: UserWarning: Encountered `nan` values in tensor. Will be removed.
-  warnings.warn(*args, **kwargs)
-
-Evaluating stanford-cars:   0%|          | 0/63 [00:02<?, ?it/s, accuracy=0.344, loss=nan][A
-Evaluating stanford-cars:   2%|▏         | 1/63 [00:02<02:33,  2.48s/it, accuracy=0.344, loss=nan][A
-Evaluating stanford-cars:   2%|▏         | 1/63 [00:02<02:33,  2.48s/it, accuracy=0.172, loss=nan][A
-Evaluating stanford-cars:   3%|▎         | 2/63 [00:02<01:07,  1.11s/it, accuracy=0.172, loss=nan][A
-Evaluating stanford-cars:   3%|▎         | 2/63 [00:02<01:07,  1.11s/it, accuracy=0.115, loss=nan][A
-Evaluating stanford-cars:   5%|▍         | 3/63 [00:02<00:41,  1.44it/s, accuracy=0.115, loss=nan][A
-Evaluating stanford-cars:   5%|▍         | 3/63 [00:02<00:41,  1.44it/s, accuracy=0.0859, loss=nan][A
-Evaluating stanford-cars:   6%|▋         | 4/63 [00:02<00:28,  2.10it/s, accuracy=0.0859, loss=nan][A
-Evaluating stanford-cars:   6%|▋         | 4/63 [00:03<00:28,  2.10it/s, accuracy=0.0688, loss=nan][A
-Evaluating stanford-cars:   8%|▊         | 5/63 [00:03<00:20,  2.82it/s, accuracy=0.0688, loss=nan][A
-Evaluating stanford-cars:   8%|▊         | 5/63 [00:03<00:20,  2.82it/s, accuracy=0.0573, loss=nan][A
-Evaluating stanford-cars:  10%|▉         | 6/63 [00:03<00:16,  3.56it/s, accuracy=0.0573, loss=nan][A
-Evaluating stanford-cars:  10%|▉         | 6/63 [00:03<00:16,  3.56it/s, accuracy=0.0491, loss=nan][A
-Evaluating stanford-cars:  11%|█         | 7/63 [00:03<00:14,  3.91it/s, accuracy=0.0491, loss=nan][A
-Evaluating stanford-cars:  11%|█         | 7/63 [00:03<00:14,  3.91it/s, accuracy=0.043, loss=nan] [A
-Evaluating stanford-cars:  13%|█▎        | 8/63 [00:03<00:12,  4.57it/s, accuracy=0.043, loss=nan][A
-Evaluating stanford-cars:  13%|█▎        | 8/63 [00:03<00:12,  4.57it/s, accuracy=0.0382, loss=nan][A
-Evaluating stanford-cars:  14%|█▍        | 9/63 [00:03<00:10,  5.15it/s, accuracy=0.0382, loss=nan][A
-Evaluating stanford-cars:  14%|█▍        | 9/63 [00:03<00:10,  5.15it/s, accuracy=0.0344, loss=nan][A
-Evaluating stanford-cars:  16%|█▌        | 10/63 [00:03<00:09,  5.63it/s, accuracy=0.0344, loss=nan][A
-Evaluating stanford-cars:  16%|█▌        | 10/63 [00:04<00:09,  5.63it/s, accuracy=0.0312, loss=nan][A
-Evaluating stanford-cars:  17%|█▋        | 11/63 [00:04<00:08,  6.04it/s, accuracy=0.0312, loss=nan][A
-Evaluating stanford-cars:  17%|█▋        | 11/63 [00:04<00:08,  6.04it/s, accuracy=0.0286, loss=nan][A
-Evaluating stanford-cars:  19%|█▉        | 12/63 [00:04<00:08,  6.35it/s, accuracy=0.0286, loss=nan][A
-Evaluating stanford-cars:  19%|█▉        | 12/63 [00:04<00:08,  6.35it/s, accuracy=0.0264, loss=nan][A
-Evaluating stanford-cars:  21%|██        | 13/63 [00:04<00:07,  6.56it/s, accuracy=0.0264, loss=nan][A
-Evaluating stanford-cars:  21%|██        | 13/63 [00:04<00:07,  6.56it/s, accuracy=0.0246, loss=nan][A
-Evaluating stanford-cars:  22%|██▏       | 14/63 [00:04<00:07,  6.72it/s, accuracy=0.0246, loss=nan][A
-Evaluating stanford-cars:  22%|██▏       | 14/63 [00:04<00:07,  6.72it/s, accuracy=0.0229, loss=nan][A
-Evaluating stanford-cars:  24%|██▍       | 15/63 [00:04<00:06,  6.86it/s, accuracy=0.0229, loss=nan][A
-Evaluating stanford-cars:  24%|██▍       | 15/63 [00:04<00:06,  6.86it/s, accuracy=0.0215, loss=nan][A
-Evaluating stanford-cars:  25%|██▌       | 16/63 [00:04<00:06,  6.96it/s, accuracy=0.0215, loss=nan][A
-Evaluating stanford-cars:  25%|██▌       | 16/63 [00:04<00:06,  6.96it/s, accuracy=0.0202, loss=nan][A
-Evaluating stanford-cars:  27%|██▋       | 17/63 [00:04<00:06,  7.02it/s, accuracy=0.0202, loss=nan][A
-Evaluating stanford-cars:  27%|██▋       | 17/63 [00:05<00:06,  7.02it/s, accuracy=0.0191, loss=nan][A
-Evaluating stanford-cars:  29%|██▊       | 18/63 [00:05<00:10,  4.44it/s, accuracy=0.0191, loss=nan][A
-Evaluating stanford-cars:  29%|██▊       | 18/63 [00:05<00:10,  4.44it/s, accuracy=0.0181, loss=nan][A
-Evaluating stanford-cars:  30%|███       | 19/63 [00:05<00:08,  5.02it/s, accuracy=0.0181, loss=nan][A
-Evaluating stanford-cars:  30%|███       | 19/63 [00:05<00:08,  5.02it/s, accuracy=0.0172, loss=nan][A
-Evaluating stanford-cars:  32%|███▏      | 20/63 [00:05<00:07,  5.52it/s, accuracy=0.0172, loss=nan][A
-Evaluating stanford-cars:  32%|███▏      | 20/63 [00:05<00:07,  5.52it/s, accuracy=0.0164, loss=nan][A
-Evaluating stanford-cars:  33%|███▎      | 21/63 [00:05<00:07,  5.93it/s, accuracy=0.0164, loss=nan][A
-Evaluating stanford-cars:  33%|███▎      | 21/63 [00:05<00:07,  5.93it/s, accuracy=0.0156, loss=nan][A
-Evaluating stanford-cars:  35%|███▍      | 22/63 [00:05<00:06,  6.27it/s, accuracy=0.0156, loss=nan][A
-Evaluating stanford-cars:  35%|███▍      | 22/63 [00:05<00:06,  6.27it/s, accuracy=0.0149, loss=nan][A
-Evaluating stanford-cars:  37%|███▋      | 23/63 [00:05<00:06,  6.52it/s, accuracy=0.0149, loss=nan][A
-Evaluating stanford-cars:  37%|███▋      | 23/63 [00:06<00:06,  6.52it/s, accuracy=0.0143, loss=nan][A
-Evaluating stanford-cars:  38%|███▊      | 24/63 [00:06<00:05,  6.70it/s, accuracy=0.0143, loss=nan][A
-Evaluating stanford-cars:  38%|███▊      | 24/63 [00:06<00:05,  6.70it/s, accuracy=0.0137, loss=nan][A
-Evaluating stanford-cars:  40%|███▉      | 25/63 [00:06<00:07,  5.11it/s, accuracy=0.0137, loss=nan][A
-Evaluating stanford-cars:  40%|███▉      | 25/63 [00:07<00:07,  5.11it/s, accuracy=0.0132, loss=nan][A
-Evaluating stanford-cars:  41%|████▏     | 26/63 [00:07<00:13,  2.69it/s, accuracy=0.0132, loss=nan][A
-Evaluating stanford-cars:  41%|████▏     | 26/63 [00:07<00:13,  2.69it/s, accuracy=0.0127, loss=nan][A
-Evaluating stanford-cars:  43%|████▎     | 27/63 [00:07<00:10,  3.31it/s, accuracy=0.0127, loss=nan][A
-Evaluating stanford-cars:  43%|████▎     | 27/63 [00:07<00:10,  3.31it/s, accuracy=0.0123, loss=nan][A
-Evaluating stanford-cars:  44%|████▍     | 28/63 [00:07<00:08,  3.95it/s, accuracy=0.0123, loss=nan][A
-Evaluating stanford-cars:  44%|████▍     | 28/63 [00:07<00:08,  3.95it/s, accuracy=0.0119, loss=nan][A
-Evaluating stanford-cars:  46%|████▌     | 29/63 [00:07<00:07,  4.56it/s, accuracy=0.0119, loss=nan][A
-Evaluating stanford-cars:  46%|████▌     | 29/63 [00:07<00:07,  4.56it/s, accuracy=0.0115, loss=nan][A
-Evaluating stanford-cars:  48%|████▊     | 30/63 [00:07<00:06,  5.12it/s, accuracy=0.0115, loss=nan][A
-Evaluating stanford-cars:  48%|████▊     | 30/63 [00:07<00:06,  5.12it/s, accuracy=0.0111, loss=nan][A
-Evaluating stanford-cars:  49%|████▉     | 31/63 [00:07<00:05,  5.61it/s, accuracy=0.0111, loss=nan][A
-Evaluating stanford-cars:  49%|████▉     | 31/63 [00:08<00:05,  5.61it/s, accuracy=0.0107, loss=nan][A
-Evaluating stanford-cars:  51%|█████     | 32/63 [00:08<00:05,  6.00it/s, accuracy=0.0107, loss=nan][A
-Evaluating stanford-cars:  51%|█████     | 32/63 [00:08<00:05,  6.00it/s, accuracy=0.0104, loss=nan][A
-Evaluating stanford-cars:  52%|█████▏    | 33/63 [00:08<00:04,  6.31it/s, accuracy=0.0104, loss=nan][A
-Evaluating stanford-cars:  52%|█████▏    | 33/63 [00:08<00:04,  6.31it/s, accuracy=0.0101, loss=nan][A
-Evaluating stanford-cars:  54%|█████▍    | 34/63 [00:08<00:06,  4.39it/s, accuracy=0.0101, loss=nan][A
-Evaluating stanford-cars:  54%|█████▍    | 34/63 [00:08<00:06,  4.39it/s, accuracy=0.00982, loss=nan][A
-Evaluating stanford-cars:  56%|█████▌    | 35/63 [00:08<00:06,  4.49it/s, accuracy=0.00982, loss=nan][A
-Evaluating stanford-cars:  56%|█████▌    | 35/63 [00:08<00:06,  4.49it/s, accuracy=0.00955, loss=nan][A
-Evaluating stanford-cars:  57%|█████▋    | 36/63 [00:08<00:05,  5.06it/s, accuracy=0.00955, loss=nan][A
-Evaluating stanford-cars:  57%|█████▋    | 36/63 [00:09<00:05,  5.06it/s, accuracy=0.00929, loss=nan][A
-Evaluating stanford-cars:  59%|█████▊    | 37/63 [00:09<00:04,  5.56it/s, accuracy=0.00929, loss=nan][A
-Evaluating stanford-cars:  59%|█████▊    | 37/63 [00:09<00:04,  5.56it/s, accuracy=0.00905, loss=nan][A
-Evaluating stanford-cars:  60%|██████    | 38/63 [00:09<00:04,  5.96it/s, accuracy=0.00905, loss=nan][A
-Evaluating stanford-cars:  60%|██████    | 38/63 [00:09<00:04,  5.96it/s, accuracy=0.00881, loss=nan][A
-Evaluating stanford-cars:  62%|██████▏   | 39/63 [00:09<00:03,  6.26it/s, accuracy=0.00881, loss=nan][A
-Evaluating stanford-cars:  62%|██████▏   | 39/63 [00:09<00:03,  6.26it/s, accuracy=0.00859, loss=nan][A
-Evaluating stanford-cars:  63%|██████▎   | 40/63 [00:09<00:03,  6.50it/s, accuracy=0.00859, loss=nan][A
-Evaluating stanford-cars:  63%|██████▎   | 40/63 [00:09<00:03,  6.50it/s, accuracy=0.00838, loss=nan][A
-Evaluating stanford-cars:  65%|██████▌   | 41/63 [00:09<00:03,  6.68it/s, accuracy=0.00838, loss=nan][A
-Evaluating stanford-cars:  65%|██████▌   | 41/63 [00:09<00:03,  6.68it/s, accuracy=0.00818, loss=nan][A
-Evaluating stanford-cars:  67%|██████▋   | 42/63 [00:09<00:03,  6.81it/s, accuracy=0.00818, loss=nan][A
-Evaluating stanford-cars:  67%|██████▋   | 42/63 [00:09<00:03,  6.81it/s, accuracy=0.00799, loss=nan][A
-Evaluating stanford-cars:  68%|██████▊   | 43/63 [00:09<00:02,  6.91it/s, accuracy=0.00799, loss=nan][A
-Evaluating stanford-cars:  68%|██████▊   | 43/63 [00:10<00:02,  6.91it/s, accuracy=0.00781, loss=nan][A
-Evaluating stanford-cars:  70%|██████▉   | 44/63 [00:10<00:02,  6.97it/s, accuracy=0.00781, loss=nan][A
-Evaluating stanford-cars:  70%|██████▉   | 44/63 [00:10<00:02,  6.97it/s, accuracy=0.00764, loss=nan][A
-Evaluating stanford-cars:  71%|███████▏  | 45/63 [00:10<00:02,  7.04it/s, accuracy=0.00764, loss=nan][A
-Evaluating stanford-cars:  71%|███████▏  | 45/63 [00:10<00:02,  7.04it/s, accuracy=0.00747, loss=nan][A
-Evaluating stanford-cars:  73%|███████▎  | 46/63 [00:10<00:02,  7.08it/s, accuracy=0.00747, loss=nan][A
-Evaluating stanford-cars:  73%|███████▎  | 46/63 [00:10<00:02,  7.08it/s, accuracy=0.00731, loss=nan][A
-Evaluating stanford-cars:  75%|███████▍  | 47/63 [00:10<00:02,  7.12it/s, accuracy=0.00731, loss=nan][A
-Evaluating stanford-cars:  75%|███████▍  | 47/63 [00:10<00:02,  7.12it/s, accuracy=0.00716, loss=nan][A
-Evaluating stanford-cars:  76%|███████▌  | 48/63 [00:10<00:02,  7.15it/s, accuracy=0.00716, loss=nan][A
-Evaluating stanford-cars:  76%|███████▌  | 48/63 [00:10<00:02,  7.15it/s, accuracy=0.00702, loss=nan][A
-Evaluating stanford-cars:  78%|███████▊  | 49/63 [00:10<00:01,  7.17it/s, accuracy=0.00702, loss=nan][A
-Evaluating stanford-cars:  78%|███████▊  | 49/63 [00:11<00:01,  7.17it/s, accuracy=0.00687, loss=nan][A
-Evaluating stanford-cars:  79%|███████▉  | 50/63 [00:11<00:04,  2.83it/s, accuracy=0.00687, loss=nan][A
-Evaluating stanford-cars:  79%|███████▉  | 50/63 [00:11<00:04,  2.83it/s, accuracy=0.00674, loss=nan][A
-Evaluating stanford-cars:  81%|████████  | 51/63 [00:11<00:03,  3.46it/s, accuracy=0.00674, loss=nan][A
-Evaluating stanford-cars:  81%|████████  | 51/63 [00:11<00:03,  3.46it/s, accuracy=0.00661, loss=nan][A
-Evaluating stanford-cars:  83%|████████▎ | 52/63 [00:11<00:02,  4.10it/s, accuracy=0.00661, loss=nan][A
-Evaluating stanford-cars:  83%|████████▎ | 52/63 [00:11<00:02,  4.10it/s, accuracy=0.00649, loss=nan][A
-Evaluating stanford-cars:  84%|████████▍ | 53/63 [00:11<00:02,  4.72it/s, accuracy=0.00649, loss=nan][A
-Evaluating stanford-cars:  84%|████████▍ | 53/63 [00:12<00:02,  4.72it/s, accuracy=0.00637, loss=nan][A
-Evaluating stanford-cars:  86%|████████▌ | 54/63 [00:12<00:01,  5.27it/s, accuracy=0.00637, loss=nan][A
-Evaluating stanford-cars:  86%|████████▌ | 54/63 [00:12<00:01,  5.27it/s, accuracy=0.00625, loss=nan][A
-Evaluating stanford-cars:  87%|████████▋ | 55/63 [00:12<00:01,  5.74it/s, accuracy=0.00625, loss=nan][A
-Evaluating stanford-cars:  87%|████████▋ | 55/63 [00:12<00:01,  5.74it/s, accuracy=0.00614, loss=nan][A
-Evaluating stanford-cars:  89%|████████▉ | 56/63 [00:12<00:01,  6.13it/s, accuracy=0.00614, loss=nan][A
-Evaluating stanford-cars:  89%|████████▉ | 56/63 [00:12<00:01,  6.13it/s, accuracy=0.00603, loss=nan][A
-Evaluating stanford-cars:  90%|█████████ | 57/63 [00:12<00:00,  6.43it/s, accuracy=0.00603, loss=nan][A
-Evaluating stanford-cars:  90%|█████████ | 57/63 [00:12<00:00,  6.43it/s, accuracy=0.00593, loss=nan][A
-Evaluating stanford-cars:  92%|█████████▏| 58/63 [00:12<00:00,  6.66it/s, accuracy=0.00593, loss=nan][A
-Evaluating stanford-cars:  92%|█████████▏| 58/63 [00:12<00:00,  6.66it/s, accuracy=0.00583, loss=nan][A
-Evaluating stanford-cars:  94%|█████████▎| 59/63 [00:12<00:00,  6.83it/s, accuracy=0.00583, loss=nan][A
-Evaluating stanford-cars:  94%|█████████▎| 59/63 [00:12<00:00,  6.83it/s, accuracy=0.00573, loss=nan][A
-Evaluating stanford-cars:  95%|█████████▌| 60/63 [00:12<00:00,  6.95it/s, accuracy=0.00573, loss=nan][A
-Evaluating stanford-cars:  95%|█████████▌| 60/63 [00:13<00:00,  6.95it/s, accuracy=0.00564, loss=nan][A
-Evaluating stanford-cars:  97%|█████████▋| 61/63 [00:13<00:00,  7.04it/s, accuracy=0.00564, loss=nan][A
-Evaluating stanford-cars:  97%|█████████▋| 61/63 [00:13<00:00,  7.04it/s, accuracy=0.00554, loss=nan][A
-Evaluating stanford-cars:  98%|█████████▊| 62/63 [00:13<00:00,  7.11it/s, accuracy=0.00554, loss=nan][A
-Evaluating stanford-cars:  98%|█████████▊| 62/63 [00:13<00:00,  7.11it/s, accuracy=0.00547, loss=nan][A
-Evaluating stanford-cars: 100%|██████████| 63/63 [00:13<00:00,  7.55it/s, accuracy=0.00547, loss=nan][A
-                                                                                                     [AEvaluating tasks:  14%|█▍        | 1/7 [00:14<01:28, 14.75s/it]
-Evaluating resisc45:   0%|          | 0/50 [00:00<?, ?it/s][A
-Evaluating resisc45:   0%|          | 0/50 [00:01<?, ?it/s, accuracy=1, loss=nan][A
-Evaluating resisc45:   2%|▏         | 1/50 [00:01<01:02,  1.27s/it, accuracy=1, loss=nan][A
-Evaluating resisc45:   2%|▏         | 1/50 [00:01<01:02,  1.27s/it, accuracy=0.66, loss=nan][A
-Evaluating resisc45:   4%|▍         | 2/50 [00:01<00:30,  1.57it/s, accuracy=0.66, loss=nan][A
-Evaluating resisc45:   4%|▍         | 2/50 [00:01<00:30,  1.57it/s, accuracy=0.44, loss=nan][A
-Evaluating resisc45:   6%|▌         | 3/50 [00:01<00:20,  2.31it/s, accuracy=0.44, loss=nan][A
-Evaluating resisc45:   6%|▌         | 3/50 [00:01<00:20,  2.31it/s, accuracy=0.33, loss=nan][A
-Evaluating resisc45:   8%|▊         | 4/50 [00:01<00:14,  3.16it/s, accuracy=0.33, loss=nan][A
-Evaluating resisc45:   8%|▊         | 4/50 [00:01<00:14,  3.16it/s, accuracy=0.264, loss=nan][A
-Evaluating resisc45:  10%|█         | 5/50 [00:01<00:12,  3.69it/s, accuracy=0.264, loss=nan][A
-Evaluating resisc45:  10%|█         | 5/50 [00:02<00:12,  3.69it/s, accuracy=0.22, loss=nan] [A
-Evaluating resisc45:  12%|█▏        | 6/50 [00:02<00:09,  4.42it/s, accuracy=0.22, loss=nan][A
-Evaluating resisc45:  12%|█▏        | 6/50 [00:02<00:09,  4.42it/s, accuracy=0.189, loss=nan][A
-Evaluating resisc45:  14%|█▍        | 7/50 [00:02<00:08,  5.06it/s, accuracy=0.189, loss=nan][A
-Evaluating resisc45:  14%|█▍        | 7/50 [00:02<00:08,  5.06it/s, accuracy=0.165, loss=nan][A
-Evaluating resisc45:  16%|█▌        | 8/50 [00:02<00:07,  5.59it/s, accuracy=0.165, loss=nan][A
-Evaluating resisc45:  16%|█▌        | 8/50 [00:02<00:07,  5.59it/s, accuracy=0.147, loss=nan][A
-Evaluating resisc45:  18%|█▊        | 9/50 [00:02<00:06,  6.01it/s, accuracy=0.147, loss=nan][A
-Evaluating resisc45:  18%|█▊        | 9/50 [00:02<00:06,  6.01it/s, accuracy=0.132, loss=nan][A
-Evaluating resisc45:  20%|██        | 10/50 [00:02<00:06,  6.34it/s, accuracy=0.132, loss=nan][A
-Evaluating resisc45:  20%|██        | 10/50 [00:02<00:06,  6.34it/s, accuracy=0.12, loss=nan] [A
-Evaluating resisc45:  22%|██▏       | 11/50 [00:02<00:05,  6.59it/s, accuracy=0.12, loss=nan][A
-Evaluating resisc45:  22%|██▏       | 11/50 [00:02<00:05,  6.59it/s, accuracy=0.11, loss=nan][A
-Evaluating resisc45:  24%|██▍       | 12/50 [00:02<00:05,  6.77it/s, accuracy=0.11, loss=nan][A
-Evaluating resisc45:  24%|██▍       | 12/50 [00:03<00:05,  6.77it/s, accuracy=0.102, loss=nan][A
-Evaluating resisc45:  26%|██▌       | 13/50 [00:03<00:05,  6.91it/s, accuracy=0.102, loss=nan][A
-Evaluating resisc45:  26%|██▌       | 13/50 [00:03<00:05,  6.91it/s, accuracy=0.0943, loss=nan][A
-Evaluating resisc45:  28%|██▊       | 14/50 [00:03<00:05,  7.00it/s, accuracy=0.0943, loss=nan][A
-Evaluating resisc45:  28%|██▊       | 14/50 [00:03<00:05,  7.00it/s, accuracy=0.088, loss=nan] [A
-Evaluating resisc45:  30%|███       | 15/50 [00:03<00:04,  7.07it/s, accuracy=0.088, loss=nan][A
-Evaluating resisc45:  30%|███       | 15/50 [00:03<00:04,  7.07it/s, accuracy=0.0825, loss=nan][A
-Evaluating resisc45:  32%|███▏      | 16/50 [00:03<00:04,  7.12it/s, accuracy=0.0825, loss=nan][A
-Evaluating resisc45:  32%|███▏      | 16/50 [00:03<00:04,  7.12it/s, accuracy=0.0777, loss=nan][A
-Evaluating resisc45:  34%|███▍      | 17/50 [00:03<00:04,  7.16it/s, accuracy=0.0777, loss=nan][A
-Evaluating resisc45:  34%|███▍      | 17/50 [00:03<00:04,  7.16it/s, accuracy=0.0734, loss=nan][A
-Evaluating resisc45:  36%|███▌      | 18/50 [00:03<00:04,  7.17it/s, accuracy=0.0734, loss=nan][A
-Evaluating resisc45:  36%|███▌      | 18/50 [00:03<00:04,  7.17it/s, accuracy=0.0695, loss=nan][A
-Evaluating resisc45:  38%|███▊      | 19/50 [00:03<00:04,  7.18it/s, accuracy=0.0695, loss=nan][A
-Evaluating resisc45:  38%|███▊      | 19/50 [00:04<00:04,  7.18it/s, accuracy=0.066, loss=nan] [A
-Evaluating resisc45:  40%|████      | 20/50 [00:04<00:04,  7.18it/s, accuracy=0.066, loss=nan][A
-Evaluating resisc45:  40%|████      | 20/50 [00:04<00:04,  7.18it/s, accuracy=0.0629, loss=nan][A
-Evaluating resisc45:  42%|████▏     | 21/50 [00:04<00:04,  7.19it/s, accuracy=0.0629, loss=nan][A
-Evaluating resisc45:  42%|████▏     | 21/50 [00:04<00:04,  7.19it/s, accuracy=0.06, loss=nan]  [A
-Evaluating resisc45:  44%|████▍     | 22/50 [00:04<00:03,  7.20it/s, accuracy=0.06, loss=nan][A
-Evaluating resisc45:  44%|████▍     | 22/50 [00:04<00:03,  7.20it/s, accuracy=0.0574, loss=nan][A
-Evaluating resisc45:  46%|████▌     | 23/50 [00:04<00:03,  7.22it/s, accuracy=0.0574, loss=nan][A
-Evaluating resisc45:  46%|████▌     | 23/50 [00:04<00:03,  7.22it/s, accuracy=0.055, loss=nan] [A
-Evaluating resisc45:  48%|████▊     | 24/50 [00:04<00:03,  7.22it/s, accuracy=0.055, loss=nan][A
-Evaluating resisc45:  48%|████▊     | 24/50 [00:04<00:03,  7.22it/s, accuracy=0.0528, loss=nan][A
-Evaluating resisc45:  50%|█████     | 25/50 [00:04<00:03,  7.22it/s, accuracy=0.0528, loss=nan][A
-Evaluating resisc45:  50%|█████     | 25/50 [00:04<00:03,  7.22it/s, accuracy=0.0508, loss=nan][A
-Evaluating resisc45:  52%|█████▏    | 26/50 [00:04<00:03,  7.23it/s, accuracy=0.0508, loss=nan][A
-Evaluating resisc45:  52%|█████▏    | 26/50 [00:05<00:03,  7.23it/s, accuracy=0.0489, loss=nan][A
-Evaluating resisc45:  54%|█████▍    | 27/50 [00:05<00:03,  7.23it/s, accuracy=0.0489, loss=nan][A
-Evaluating resisc45:  54%|█████▍    | 27/50 [00:05<00:03,  7.23it/s, accuracy=0.0472, loss=nan][A
-Evaluating resisc45:  56%|█████▌    | 28/50 [00:05<00:03,  7.23it/s, accuracy=0.0472, loss=nan][A
-Evaluating resisc45:  56%|█████▌    | 28/50 [00:05<00:03,  7.23it/s, accuracy=0.0455, loss=nan][A
-Evaluating resisc45:  58%|█████▊    | 29/50 [00:05<00:02,  7.23it/s, accuracy=0.0455, loss=nan][A
-Evaluating resisc45:  58%|█████▊    | 29/50 [00:05<00:02,  7.23it/s, accuracy=0.044, loss=nan] [A
-Evaluating resisc45:  60%|██████    | 30/50 [00:05<00:02,  7.23it/s, accuracy=0.044, loss=nan][A
-Evaluating resisc45:  60%|██████    | 30/50 [00:05<00:02,  7.23it/s, accuracy=0.0426, loss=nan][A
-Evaluating resisc45:  62%|██████▏   | 31/50 [00:05<00:02,  7.24it/s, accuracy=0.0426, loss=nan][A
-Evaluating resisc45:  62%|██████▏   | 31/50 [00:05<00:02,  7.24it/s, accuracy=0.0413, loss=nan][A
-Evaluating resisc45:  64%|██████▍   | 32/50 [00:05<00:02,  7.24it/s, accuracy=0.0413, loss=nan][A
-Evaluating resisc45:  64%|██████▍   | 32/50 [00:05<00:02,  7.24it/s, accuracy=0.04, loss=nan]  [A
-Evaluating resisc45:  66%|██████▌   | 33/50 [00:05<00:02,  7.24it/s, accuracy=0.04, loss=nan][A
-Evaluating resisc45:  66%|██████▌   | 33/50 [00:06<00:02,  7.24it/s, accuracy=0.0388, loss=nan][A
-Evaluating resisc45:  68%|██████▊   | 34/50 [00:06<00:02,  6.92it/s, accuracy=0.0388, loss=nan][A
-Evaluating resisc45:  68%|██████▊   | 34/50 [00:06<00:02,  6.92it/s, accuracy=0.0377, loss=nan][A
-Evaluating resisc45:  70%|███████   | 35/50 [00:06<00:02,  7.01it/s, accuracy=0.0377, loss=nan][A
-Evaluating resisc45:  70%|███████   | 35/50 [00:06<00:02,  7.01it/s, accuracy=0.0367, loss=nan][A
-Evaluating resisc45:  72%|███████▏  | 36/50 [00:06<00:01,  7.08it/s, accuracy=0.0367, loss=nan][A
-Evaluating resisc45:  72%|███████▏  | 36/50 [00:06<00:01,  7.08it/s, accuracy=0.0357, loss=nan][A
-Evaluating resisc45:  74%|███████▍  | 37/50 [00:06<00:01,  7.14it/s, accuracy=0.0357, loss=nan][A
-Evaluating resisc45:  74%|███████▍  | 37/50 [00:06<00:01,  7.14it/s, accuracy=0.0347, loss=nan][A
-Evaluating resisc45:  76%|███████▌  | 38/50 [00:06<00:01,  7.18it/s, accuracy=0.0347, loss=nan][A
-Evaluating resisc45:  76%|███████▌  | 38/50 [00:06<00:01,  7.18it/s, accuracy=0.0339, loss=nan][A
-Evaluating resisc45:  78%|███████▊  | 39/50 [00:06<00:01,  7.20it/s, accuracy=0.0339, loss=nan][A
-Evaluating resisc45:  78%|███████▊  | 39/50 [00:06<00:01,  7.20it/s, accuracy=0.033, loss=nan] [A
-Evaluating resisc45:  80%|████████  | 40/50 [00:06<00:01,  7.22it/s, accuracy=0.033, loss=nan][A
-Evaluating resisc45:  80%|████████  | 40/50 [00:06<00:01,  7.22it/s, accuracy=0.0322, loss=nan][A
-Evaluating resisc45:  82%|████████▏ | 41/50 [00:06<00:01,  7.24it/s, accuracy=0.0322, loss=nan][A
-Evaluating resisc45:  82%|████████▏ | 41/50 [00:07<00:01,  7.24it/s, accuracy=0.0314, loss=nan][A
-Evaluating resisc45:  84%|████████▍ | 42/50 [00:07<00:01,  7.25it/s, accuracy=0.0314, loss=nan][A
-Evaluating resisc45:  84%|████████▍ | 42/50 [00:07<00:01,  7.25it/s, accuracy=0.0307, loss=nan][A
-Evaluating resisc45:  86%|████████▌ | 43/50 [00:07<00:00,  7.25it/s, accuracy=0.0307, loss=nan][A
-Evaluating resisc45:  86%|████████▌ | 43/50 [00:07<00:00,  7.25it/s, accuracy=0.03, loss=nan]  [A
-Evaluating resisc45:  88%|████████▊ | 44/50 [00:07<00:00,  7.25it/s, accuracy=0.03, loss=nan][A
-Evaluating resisc45:  88%|████████▊ | 44/50 [00:07<00:00,  7.25it/s, accuracy=0.0293, loss=nan][A
-Evaluating resisc45:  90%|█████████ | 45/50 [00:07<00:00,  7.26it/s, accuracy=0.0293, loss=nan][A
-Evaluating resisc45:  90%|█████████ | 45/50 [00:07<00:00,  7.26it/s, accuracy=0.0287, loss=nan][A
-Evaluating resisc45:  92%|█████████▏| 46/50 [00:07<00:00,  7.26it/s, accuracy=0.0287, loss=nan][A
-Evaluating resisc45:  92%|█████████▏| 46/50 [00:07<00:00,  7.26it/s, accuracy=0.0281, loss=nan][A
-Evaluating resisc45:  94%|█████████▍| 47/50 [00:07<00:00,  7.27it/s, accuracy=0.0281, loss=nan][A
-Evaluating resisc45:  94%|█████████▍| 47/50 [00:07<00:00,  7.27it/s, accuracy=0.0275, loss=nan][A
-Evaluating resisc45:  96%|█████████▌| 48/50 [00:07<00:00,  7.27it/s, accuracy=0.0275, loss=nan][A
-Evaluating resisc45:  96%|█████████▌| 48/50 [00:08<00:00,  7.27it/s, accuracy=0.0269, loss=nan][A
-Evaluating resisc45:  98%|█████████▊| 49/50 [00:08<00:00,  7.27it/s, accuracy=0.0269, loss=nan][A
-Evaluating resisc45:  98%|█████████▊| 49/50 [00:08<00:00,  7.27it/s, accuracy=0.0268, loss=nan][A
-                                                                                               [AEvaluating tasks:  29%|██▊       | 2/7 [00:23<00:55, 11.05s/it]
-Evaluating eurosat:   0%|          | 0/22 [00:00<?, ?it/s][A
-Evaluating eurosat:   0%|          | 0/22 [00:01<?, ?it/s, accuracy=1, loss=nan][A
-Evaluating eurosat:   5%|▍         | 1/22 [00:01<00:23,  1.11s/it, accuracy=1, loss=nan][A
-Evaluating eurosat:   5%|▍         | 1/22 [00:01<00:23,  1.11s/it, accuracy=1, loss=nan][A
-Evaluating eurosat:   9%|▉         | 2/22 [00:01<00:10,  1.85it/s, accuracy=1, loss=nan][A
-Evaluating eurosat:   9%|▉         | 2/22 [00:01<00:10,  1.85it/s, accuracy=0.826, loss=nan][A
-Evaluating eurosat:  14%|█▎        | 3/22 [00:01<00:06,  2.81it/s, accuracy=0.826, loss=nan][A
-Evaluating eurosat:  14%|█▎        | 3/22 [00:01<00:06,  2.81it/s, accuracy=0.619, loss=nan][A
-Evaluating eurosat:  18%|█▊        | 4/22 [00:01<00:04,  3.70it/s, accuracy=0.619, loss=nan][A
-Evaluating eurosat:  18%|█▊        | 4/22 [00:01<00:04,  3.70it/s, accuracy=0.495, loss=nan][A
-Evaluating eurosat:  23%|██▎       | 5/22 [00:01<00:03,  4.49it/s, accuracy=0.495, loss=nan][A
-Evaluating eurosat:  23%|██▎       | 5/22 [00:01<00:03,  4.49it/s, accuracy=0.413, loss=nan][A
-Evaluating eurosat:  27%|██▋       | 6/22 [00:01<00:03,  5.10it/s, accuracy=0.413, loss=nan][A
-Evaluating eurosat:  27%|██▋       | 6/22 [00:01<00:03,  5.10it/s, accuracy=0.354, loss=nan][A
-Evaluating eurosat:  32%|███▏      | 7/22 [00:01<00:02,  5.65it/s, accuracy=0.354, loss=nan][A
-Evaluating eurosat:  32%|███▏      | 7/22 [00:02<00:02,  5.65it/s, accuracy=0.31, loss=nan] [A
-Evaluating eurosat:  36%|███▋      | 8/22 [00:02<00:02,  6.07it/s, accuracy=0.31, loss=nan][A
-Evaluating eurosat:  36%|███▋      | 8/22 [00:02<00:02,  6.07it/s, accuracy=0.275, loss=nan][A
-Evaluating eurosat:  41%|████      | 9/22 [00:02<00:02,  6.40it/s, accuracy=0.275, loss=nan][A
-Evaluating eurosat:  41%|████      | 9/22 [00:02<00:02,  6.40it/s, accuracy=0.248, loss=nan][A
-Evaluating eurosat:  45%|████▌     | 10/22 [00:02<00:01,  6.65it/s, accuracy=0.248, loss=nan][A
-Evaluating eurosat:  45%|████▌     | 10/22 [00:02<00:01,  6.65it/s, accuracy=0.225, loss=nan][A
-Evaluating eurosat:  50%|█████     | 11/22 [00:02<00:01,  6.82it/s, accuracy=0.225, loss=nan][A
-Evaluating eurosat:  50%|█████     | 11/22 [00:02<00:01,  6.82it/s, accuracy=0.206, loss=nan][A
-Evaluating eurosat:  55%|█████▍    | 12/22 [00:02<00:01,  6.95it/s, accuracy=0.206, loss=nan][A
-Evaluating eurosat:  55%|█████▍    | 12/22 [00:02<00:01,  6.95it/s, accuracy=0.191, loss=nan][A
-Evaluating eurosat:  59%|█████▉    | 13/22 [00:02<00:01,  7.05it/s, accuracy=0.191, loss=nan][A
-Evaluating eurosat:  59%|█████▉    | 13/22 [00:02<00:01,  7.05it/s, accuracy=0.177, loss=nan][A
-Evaluating eurosat:  64%|██████▎   | 14/22 [00:02<00:01,  7.11it/s, accuracy=0.177, loss=nan][A
-Evaluating eurosat:  64%|██████▎   | 14/22 [00:03<00:01,  7.11it/s, accuracy=0.165, loss=nan][A
-Evaluating eurosat:  68%|██████▊   | 15/22 [00:03<00:00,  7.16it/s, accuracy=0.165, loss=nan][A
-Evaluating eurosat:  68%|██████▊   | 15/22 [00:03<00:00,  7.16it/s, accuracy=0.155, loss=nan][A
-Evaluating eurosat:  73%|███████▎  | 16/22 [00:03<00:00,  7.19it/s, accuracy=0.155, loss=nan][A
-Evaluating eurosat:  73%|███████▎  | 16/22 [00:03<00:00,  7.19it/s, accuracy=0.146, loss=nan][A
-Evaluating eurosat:  77%|███████▋  | 17/22 [00:03<00:00,  7.21it/s, accuracy=0.146, loss=nan][A
-Evaluating eurosat:  77%|███████▋  | 17/22 [00:03<00:00,  7.21it/s, accuracy=0.138, loss=nan][A
-Evaluating eurosat:  82%|████████▏ | 18/22 [00:03<00:00,  7.23it/s, accuracy=0.138, loss=nan][A
-Evaluating eurosat:  82%|████████▏ | 18/22 [00:03<00:00,  7.23it/s, accuracy=0.13, loss=nan] [A
-Evaluating eurosat:  86%|████████▋ | 19/22 [00:03<00:00,  7.24it/s, accuracy=0.13, loss=nan][A
-Evaluating eurosat:  86%|████████▋ | 19/22 [00:03<00:00,  7.24it/s, accuracy=0.124, loss=nan][A
-Evaluating eurosat:  91%|█████████ | 20/22 [00:03<00:00,  7.25it/s, accuracy=0.124, loss=nan][A
-Evaluating eurosat:  91%|█████████ | 20/22 [00:03<00:00,  7.25it/s, accuracy=0.118, loss=nan][A
-Evaluating eurosat:  95%|█████████▌| 21/22 [00:03<00:00,  7.26it/s, accuracy=0.118, loss=nan][A
-Evaluating eurosat:  95%|█████████▌| 21/22 [00:03<00:00,  7.26it/s, accuracy=0.117, loss=nan][A
-                                                                                             [AEvaluating tasks:  43%|████▎     | 3/7 [00:27<00:31,  7.88s/it]
-Evaluating svhn:   0%|          | 0/204 [00:00<?, ?it/s][A
-Evaluating svhn:   0%|          | 0/204 [00:01<?, ?it/s, accuracy=0.0547, loss=nan][A
-Evaluating svhn:   0%|          | 1/204 [00:01<03:57,  1.17s/it, accuracy=0.0547, loss=nan][A
-Evaluating svhn:   0%|          | 1/204 [00:01<03:57,  1.17s/it, accuracy=0.0664, loss=nan][A
-Evaluating svhn:   1%|          | 2/204 [00:01<01:53,  1.78it/s, accuracy=0.0664, loss=nan][A
-Evaluating svhn:   1%|          | 2/204 [00:01<01:53,  1.78it/s, accuracy=0.0625, loss=nan][A
-Evaluating svhn:   1%|▏         | 3/204 [00:01<01:14,  2.71it/s, accuracy=0.0625, loss=nan][A
-Evaluating svhn:   1%|▏         | 3/204 [00:01<01:14,  2.71it/s, accuracy=0.0547, loss=nan][A
-Evaluating svhn:   2%|▏         | 4/204 [00:01<01:00,  3.32it/s, accuracy=0.0547, loss=nan][A
-Evaluating svhn:   2%|▏         | 4/204 [00:01<01:00,  3.32it/s, accuracy=0.0609, loss=nan][A
-Evaluating svhn:   2%|▏         | 5/204 [00:01<00:48,  4.12it/s, accuracy=0.0609, loss=nan][A
-Evaluating svhn:   2%|▏         | 5/204 [00:01<00:48,  4.12it/s, accuracy=0.0612, loss=nan][A
-Evaluating svhn:   3%|▎         | 6/204 [00:01<00:40,  4.83it/s, accuracy=0.0612, loss=nan][A
-Evaluating svhn:   3%|▎         | 6/204 [00:02<00:40,  4.83it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:   3%|▎         | 7/204 [00:02<00:36,  5.42it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:   3%|▎         | 7/204 [00:02<00:36,  5.42it/s, accuracy=0.0693, loss=nan][A
-Evaluating svhn:   4%|▍         | 8/204 [00:02<00:33,  5.89it/s, accuracy=0.0693, loss=nan][A
-Evaluating svhn:   4%|▍         | 8/204 [00:02<00:33,  5.89it/s, accuracy=0.072, loss=nan] [A
-Evaluating svhn:   4%|▍         | 9/204 [00:02<00:31,  6.25it/s, accuracy=0.072, loss=nan][A
-Evaluating svhn:   4%|▍         | 9/204 [00:02<00:31,  6.25it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   5%|▍         | 10/204 [00:02<00:29,  6.53it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   5%|▍         | 10/204 [00:02<00:29,  6.53it/s, accuracy=0.071, loss=nan] [A
-Evaluating svhn:   5%|▌         | 11/204 [00:02<00:28,  6.73it/s, accuracy=0.071, loss=nan][A
-Evaluating svhn:   5%|▌         | 11/204 [00:02<00:28,  6.73it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:   6%|▌         | 12/204 [00:02<00:27,  6.88it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:   6%|▌         | 12/204 [00:02<00:27,  6.88it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   6%|▋         | 13/204 [00:02<00:27,  6.98it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   6%|▋         | 13/204 [00:03<00:27,  6.98it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   7%|▋         | 14/204 [00:03<00:26,  7.06it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   7%|▋         | 14/204 [00:03<00:26,  7.06it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   7%|▋         | 15/204 [00:03<00:26,  7.11it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   7%|▋         | 15/204 [00:03<00:26,  7.11it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:   8%|▊         | 16/204 [00:03<00:26,  7.15it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:   8%|▊         | 16/204 [00:03<00:26,  7.15it/s, accuracy=0.0712, loss=nan][A
-Evaluating svhn:   8%|▊         | 17/204 [00:03<00:26,  7.18it/s, accuracy=0.0712, loss=nan][A
-Evaluating svhn:   8%|▊         | 17/204 [00:03<00:26,  7.18it/s, accuracy=0.0716, loss=nan][A
-Evaluating svhn:   9%|▉         | 18/204 [00:03<00:25,  7.20it/s, accuracy=0.0716, loss=nan][A
-Evaluating svhn:   9%|▉         | 18/204 [00:03<00:25,  7.20it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   9%|▉         | 19/204 [00:03<00:25,  7.21it/s, accuracy=0.0703, loss=nan][A
-Evaluating svhn:   9%|▉         | 19/204 [00:03<00:25,  7.21it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  10%|▉         | 20/204 [00:03<00:25,  7.22it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  10%|▉         | 20/204 [00:03<00:25,  7.22it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  10%|█         | 21/204 [00:03<00:25,  7.22it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  10%|█         | 21/204 [00:04<00:25,  7.22it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  11%|█         | 22/204 [00:04<00:25,  7.23it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  11%|█         | 22/204 [00:04<00:25,  7.23it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  11%|█▏        | 23/204 [00:04<00:25,  7.23it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  11%|█▏        | 23/204 [00:04<00:25,  7.23it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  12%|█▏        | 24/204 [00:04<00:24,  7.23it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  12%|█▏        | 24/204 [00:04<00:24,  7.23it/s, accuracy=0.0694, loss=nan][A
-Evaluating svhn:  12%|█▏        | 25/204 [00:04<00:24,  7.24it/s, accuracy=0.0694, loss=nan][A
-Evaluating svhn:  12%|█▏        | 25/204 [00:04<00:24,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  13%|█▎        | 26/204 [00:04<00:24,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  13%|█▎        | 26/204 [00:04<00:24,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  13%|█▎        | 27/204 [00:04<00:24,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  13%|█▎        | 27/204 [00:04<00:24,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  14%|█▎        | 28/204 [00:04<00:24,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  14%|█▎        | 28/204 [00:05<00:24,  7.24it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  14%|█▍        | 29/204 [00:05<00:24,  7.24it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  14%|█▍        | 29/204 [00:05<00:24,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  15%|█▍        | 30/204 [00:05<00:24,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  15%|█▍        | 30/204 [00:05<00:24,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  15%|█▌        | 31/204 [00:05<00:23,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  15%|█▌        | 31/204 [00:05<00:23,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  16%|█▌        | 32/204 [00:05<00:23,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  16%|█▌        | 32/204 [00:05<00:23,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  16%|█▌        | 33/204 [00:05<00:23,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  16%|█▌        | 33/204 [00:05<00:23,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  17%|█▋        | 34/204 [00:05<00:23,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  17%|█▋        | 34/204 [00:05<00:23,  7.24it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  17%|█▋        | 35/204 [00:05<00:23,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  17%|█▋        | 35/204 [00:06<00:23,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  18%|█▊        | 36/204 [00:06<00:23,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  18%|█▊        | 36/204 [00:06<00:23,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  18%|█▊        | 37/204 [00:06<00:23,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  18%|█▊        | 37/204 [00:06<00:23,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  19%|█▊        | 38/204 [00:06<00:22,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  19%|█▊        | 38/204 [00:06<00:22,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  19%|█▉        | 39/204 [00:06<00:22,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  19%|█▉        | 39/204 [00:06<00:22,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  20%|█▉        | 40/204 [00:06<00:22,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  20%|█▉        | 40/204 [00:06<00:22,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  20%|██        | 41/204 [00:06<00:22,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  20%|██        | 41/204 [00:06<00:22,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  21%|██        | 42/204 [00:06<00:22,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  21%|██        | 42/204 [00:07<00:22,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  21%|██        | 43/204 [00:07<00:22,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  21%|██        | 43/204 [00:07<00:22,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  22%|██▏       | 44/204 [00:07<00:22,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  22%|██▏       | 44/204 [00:07<00:22,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  22%|██▏       | 45/204 [00:07<00:21,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  22%|██▏       | 45/204 [00:07<00:21,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  23%|██▎       | 46/204 [00:07<00:21,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  23%|██▎       | 46/204 [00:07<00:21,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  23%|██▎       | 47/204 [00:07<00:21,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  23%|██▎       | 47/204 [00:07<00:21,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  24%|██▎       | 48/204 [00:07<00:21,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  24%|██▎       | 48/204 [00:07<00:21,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  24%|██▍       | 49/204 [00:07<00:21,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  24%|██▍       | 49/204 [00:07<00:21,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  25%|██▍       | 50/204 [00:07<00:21,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  25%|██▍       | 50/204 [00:08<00:21,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  25%|██▌       | 51/204 [00:08<00:21,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  25%|██▌       | 51/204 [00:08<00:21,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  25%|██▌       | 52/204 [00:08<00:20,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  25%|██▌       | 52/204 [00:08<00:20,  7.24it/s, accuracy=0.0693, loss=nan][A
-Evaluating svhn:  26%|██▌       | 53/204 [00:08<00:20,  7.24it/s, accuracy=0.0693, loss=nan][A
-Evaluating svhn:  26%|██▌       | 53/204 [00:08<00:20,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  26%|██▋       | 54/204 [00:08<00:20,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  26%|██▋       | 54/204 [00:08<00:20,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  27%|██▋       | 55/204 [00:08<00:20,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  27%|██▋       | 55/204 [00:08<00:20,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  27%|██▋       | 56/204 [00:08<00:20,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  27%|██▋       | 56/204 [00:08<00:20,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  28%|██▊       | 57/204 [00:08<00:20,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  28%|██▊       | 57/204 [00:09<00:20,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  28%|██▊       | 58/204 [00:09<00:20,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  28%|██▊       | 58/204 [00:09<00:20,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  29%|██▉       | 59/204 [00:09<00:20,  7.23it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  29%|██▉       | 59/204 [00:09<00:20,  7.23it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  29%|██▉       | 60/204 [00:09<00:19,  7.23it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  29%|██▉       | 60/204 [00:09<00:19,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  30%|██▉       | 61/204 [00:09<00:19,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  30%|██▉       | 61/204 [00:09<00:19,  7.24it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  30%|███       | 62/204 [00:09<00:19,  7.24it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  30%|███       | 62/204 [00:09<00:19,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  31%|███       | 63/204 [00:09<00:19,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  31%|███       | 63/204 [00:09<00:19,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  31%|███▏      | 64/204 [00:09<00:19,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  31%|███▏      | 64/204 [00:10<00:19,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  32%|███▏      | 65/204 [00:10<00:19,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  32%|███▏      | 65/204 [00:10<00:19,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  32%|███▏      | 66/204 [00:10<00:19,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  32%|███▏      | 66/204 [00:10<00:19,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  33%|███▎      | 67/204 [00:10<00:18,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  33%|███▎      | 67/204 [00:10<00:18,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  33%|███▎      | 68/204 [00:10<00:18,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  33%|███▎      | 68/204 [00:10<00:18,  7.24it/s, accuracy=0.0691, loss=nan][A
-Evaluating svhn:  34%|███▍      | 69/204 [00:10<00:18,  7.24it/s, accuracy=0.0691, loss=nan][A
-Evaluating svhn:  34%|███▍      | 69/204 [00:10<00:18,  7.24it/s, accuracy=0.0694, loss=nan][A
-Evaluating svhn:  34%|███▍      | 70/204 [00:10<00:18,  7.24it/s, accuracy=0.0694, loss=nan][A
-Evaluating svhn:  34%|███▍      | 70/204 [00:10<00:18,  7.24it/s, accuracy=0.069, loss=nan] [A
-Evaluating svhn:  35%|███▍      | 71/204 [00:10<00:18,  7.24it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:  35%|███▍      | 71/204 [00:11<00:18,  7.24it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:  35%|███▌      | 72/204 [00:11<00:18,  7.24it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:  35%|███▌      | 72/204 [00:11<00:18,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  36%|███▌      | 73/204 [00:11<00:18,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  36%|███▌      | 73/204 [00:11<00:18,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  36%|███▋      | 74/204 [00:11<00:17,  7.25it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  36%|███▋      | 74/204 [00:11<00:17,  7.25it/s, accuracy=0.069, loss=nan] [A
-Evaluating svhn:  37%|███▋      | 75/204 [00:11<00:17,  7.25it/s, accuracy=0.069, loss=nan][A
-Evaluating svhn:  37%|███▋      | 75/204 [00:11<00:17,  7.25it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  37%|███▋      | 76/204 [00:11<00:17,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  37%|███▋      | 76/204 [00:11<00:17,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  38%|███▊      | 77/204 [00:11<00:17,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  38%|███▊      | 77/204 [00:11<00:17,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  38%|███▊      | 78/204 [00:11<00:17,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  38%|███▊      | 78/204 [00:12<00:17,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  39%|███▊      | 79/204 [00:12<00:17,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  39%|███▊      | 79/204 [00:12<00:17,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  39%|███▉      | 80/204 [00:12<00:17,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  39%|███▉      | 80/204 [00:12<00:17,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  40%|███▉      | 81/204 [00:12<00:16,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  40%|███▉      | 81/204 [00:12<00:16,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  40%|████      | 82/204 [00:12<00:16,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  40%|████      | 82/204 [00:12<00:16,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  41%|████      | 83/204 [00:12<00:16,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  41%|████      | 83/204 [00:12<00:16,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  41%|████      | 84/204 [00:12<00:16,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  41%|████      | 84/204 [00:12<00:16,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  42%|████▏     | 85/204 [00:12<00:16,  7.24it/s, accuracy=0.0688, loss=nan][A
-Evaluating svhn:  42%|████▏     | 85/204 [00:12<00:16,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  42%|████▏     | 86/204 [00:12<00:16,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  42%|████▏     | 86/204 [00:13<00:16,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  43%|████▎     | 87/204 [00:13<00:16,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  43%|████▎     | 87/204 [00:13<00:16,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  43%|████▎     | 88/204 [00:13<00:16,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  43%|████▎     | 88/204 [00:13<00:16,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  44%|████▎     | 89/204 [00:13<00:15,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  44%|████▎     | 89/204 [00:13<00:15,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  44%|████▍     | 90/204 [00:13<00:15,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  44%|████▍     | 90/204 [00:13<00:15,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  45%|████▍     | 91/204 [00:13<00:15,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  45%|████▍     | 91/204 [00:13<00:15,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  45%|████▌     | 92/204 [00:13<00:15,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  45%|████▌     | 92/204 [00:13<00:15,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  46%|████▌     | 93/204 [00:13<00:15,  7.24it/s, accuracy=0.0689, loss=nan][A
-Evaluating svhn:  46%|████▌     | 93/204 [00:14<00:15,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  46%|████▌     | 94/204 [00:14<00:15,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  46%|████▌     | 94/204 [00:14<00:15,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  47%|████▋     | 95/204 [00:14<00:15,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  47%|████▋     | 95/204 [00:14<00:15,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  47%|████▋     | 96/204 [00:14<00:14,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  47%|████▋     | 96/204 [00:14<00:14,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  48%|████▊     | 97/204 [00:14<00:14,  7.23it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  48%|████▊     | 97/204 [00:14<00:14,  7.23it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  48%|████▊     | 98/204 [00:14<00:14,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  48%|████▊     | 98/204 [00:14<00:14,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  49%|████▊     | 99/204 [00:14<00:14,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  49%|████▊     | 99/204 [00:14<00:14,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  49%|████▉     | 100/204 [00:14<00:14,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  49%|████▉     | 100/204 [00:15<00:14,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  50%|████▉     | 101/204 [00:15<00:14,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  50%|████▉     | 101/204 [00:15<00:14,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  50%|█████     | 102/204 [00:15<00:14,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  50%|█████     | 102/204 [00:15<00:14,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  50%|█████     | 103/204 [00:15<00:13,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  50%|█████     | 103/204 [00:15<00:13,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  51%|█████     | 104/204 [00:15<00:13,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  51%|█████     | 104/204 [00:15<00:13,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  51%|█████▏    | 105/204 [00:15<00:13,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  51%|█████▏    | 105/204 [00:15<00:13,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  52%|█████▏    | 106/204 [00:15<00:13,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  52%|█████▏    | 106/204 [00:15<00:13,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  52%|█████▏    | 107/204 [00:15<00:13,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  52%|█████▏    | 107/204 [00:16<00:13,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  53%|█████▎    | 108/204 [00:16<00:13,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  53%|█████▎    | 108/204 [00:16<00:13,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  53%|█████▎    | 109/204 [00:16<00:13,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  53%|█████▎    | 109/204 [00:16<00:13,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  54%|█████▍    | 110/204 [00:16<00:12,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  54%|█████▍    | 110/204 [00:16<00:12,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  54%|█████▍    | 111/204 [00:16<00:12,  7.23it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  54%|█████▍    | 111/204 [00:16<00:12,  7.23it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  55%|█████▍    | 112/204 [00:16<00:12,  7.24it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  55%|█████▍    | 112/204 [00:16<00:12,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  55%|█████▌    | 113/204 [00:16<00:12,  7.23it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  55%|█████▌    | 113/204 [00:16<00:12,  7.23it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  56%|█████▌    | 114/204 [00:16<00:12,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  56%|█████▌    | 114/204 [00:16<00:12,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  56%|█████▋    | 115/204 [00:16<00:12,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  56%|█████▋    | 115/204 [00:17<00:12,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  57%|█████▋    | 116/204 [00:17<00:12,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  57%|█████▋    | 116/204 [00:17<00:12,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  57%|█████▋    | 117/204 [00:17<00:12,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  57%|█████▋    | 117/204 [00:17<00:12,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  58%|█████▊    | 118/204 [00:17<00:11,  7.23it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  58%|█████▊    | 118/204 [00:17<00:11,  7.23it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  58%|█████▊    | 119/204 [00:17<00:11,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  58%|█████▊    | 119/204 [00:17<00:11,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  59%|█████▉    | 120/204 [00:17<00:11,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  59%|█████▉    | 120/204 [00:17<00:11,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  59%|█████▉    | 121/204 [00:17<00:11,  7.23it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  59%|█████▉    | 121/204 [00:17<00:11,  7.23it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  60%|█████▉    | 122/204 [00:17<00:11,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  60%|█████▉    | 122/204 [00:18<00:11,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  60%|██████    | 123/204 [00:18<00:11,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  60%|██████    | 123/204 [00:18<00:11,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  61%|██████    | 124/204 [00:18<00:11,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  61%|██████    | 124/204 [00:18<00:11,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  61%|██████▏   | 125/204 [00:18<00:10,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  61%|██████▏   | 125/204 [00:18<00:10,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  62%|██████▏   | 126/204 [00:18<00:10,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  62%|██████▏   | 126/204 [00:18<00:10,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  62%|██████▏   | 127/204 [00:18<00:10,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  62%|██████▏   | 127/204 [00:18<00:10,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  63%|██████▎   | 128/204 [00:18<00:10,  7.24it/s, accuracy=0.0687, loss=nan][A
-Evaluating svhn:  63%|██████▎   | 128/204 [00:18<00:10,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  63%|██████▎   | 129/204 [00:18<00:10,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  63%|██████▎   | 129/204 [00:19<00:10,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  64%|██████▎   | 130/204 [00:19<00:10,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  64%|██████▎   | 130/204 [00:19<00:10,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  64%|██████▍   | 131/204 [00:19<00:10,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  64%|██████▍   | 131/204 [00:19<00:10,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  65%|██████▍   | 132/204 [00:19<00:09,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  65%|██████▍   | 132/204 [00:19<00:09,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  65%|██████▌   | 133/204 [00:19<00:09,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  65%|██████▌   | 133/204 [00:19<00:09,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  66%|██████▌   | 134/204 [00:19<00:09,  7.24it/s, accuracy=0.0686, loss=nan][A
-Evaluating svhn:  66%|██████▌   | 134/204 [00:19<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  66%|██████▌   | 135/204 [00:19<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  66%|██████▌   | 135/204 [00:19<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  67%|██████▋   | 136/204 [00:19<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  67%|██████▋   | 136/204 [00:20<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  67%|██████▋   | 137/204 [00:20<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  67%|██████▋   | 137/204 [00:20<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  68%|██████▊   | 138/204 [00:20<00:09,  7.24it/s, accuracy=0.0685, loss=nan][A
-Evaluating svhn:  68%|██████▊   | 138/204 [00:20<00:09,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  68%|██████▊   | 139/204 [00:20<00:08,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  68%|██████▊   | 139/204 [00:20<00:08,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  69%|██████▊   | 140/204 [00:20<00:08,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  69%|██████▊   | 140/204 [00:20<00:08,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  69%|██████▉   | 141/204 [00:20<00:08,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  69%|██████▉   | 141/204 [00:20<00:08,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  70%|██████▉   | 142/204 [00:20<00:08,  7.25it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  70%|██████▉   | 142/204 [00:20<00:08,  7.25it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  70%|███████   | 143/204 [00:20<00:08,  7.25it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  70%|███████   | 143/204 [00:20<00:08,  7.25it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  71%|███████   | 144/204 [00:20<00:08,  7.25it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  71%|███████   | 144/204 [00:21<00:08,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  71%|███████   | 145/204 [00:21<00:08,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  71%|███████   | 145/204 [00:21<00:08,  7.25it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  72%|███████▏  | 146/204 [00:21<00:08,  7.25it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  72%|███████▏  | 146/204 [00:21<00:08,  7.25it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  72%|███████▏  | 147/204 [00:21<00:07,  7.25it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  72%|███████▏  | 147/204 [00:21<00:07,  7.25it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  73%|███████▎  | 148/204 [00:21<00:07,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  73%|███████▎  | 148/204 [00:21<00:07,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  73%|███████▎  | 149/204 [00:21<00:07,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  73%|███████▎  | 149/204 [00:21<00:07,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  74%|███████▎  | 150/204 [00:21<00:07,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  74%|███████▎  | 150/204 [00:21<00:07,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  74%|███████▍  | 151/204 [00:21<00:07,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  74%|███████▍  | 151/204 [00:22<00:07,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  75%|███████▍  | 152/204 [00:22<00:07,  7.24it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  75%|███████▍  | 152/204 [00:22<00:07,  7.24it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  75%|███████▌  | 153/204 [00:22<00:07,  7.25it/s, accuracy=0.0683, loss=nan][A
-Evaluating svhn:  75%|███████▌  | 153/204 [00:22<00:07,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  75%|███████▌  | 154/204 [00:22<00:06,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  75%|███████▌  | 154/204 [00:22<00:06,  7.25it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  76%|███████▌  | 155/204 [00:22<00:06,  7.25it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  76%|███████▌  | 155/204 [00:22<00:06,  7.25it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  76%|███████▋  | 156/204 [00:22<00:06,  7.25it/s, accuracy=0.0684, loss=nan][A
-Evaluating svhn:  76%|███████▋  | 156/204 [00:22<00:06,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  77%|███████▋  | 157/204 [00:22<00:06,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  77%|███████▋  | 157/204 [00:22<00:06,  7.25it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  77%|███████▋  | 158/204 [00:22<00:06,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  77%|███████▋  | 158/204 [00:23<00:06,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  78%|███████▊  | 159/204 [00:23<00:06,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  78%|███████▊  | 159/204 [00:23<00:06,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  78%|███████▊  | 160/204 [00:23<00:06,  7.24it/s, accuracy=0.0681, loss=nan][A
-Evaluating svhn:  78%|███████▊  | 160/204 [00:23<00:06,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  79%|███████▉  | 161/204 [00:23<00:05,  7.24it/s, accuracy=0.0682, loss=nan][A
-Evaluating svhn:  79%|███████▉  | 161/204 [00:23<00:05,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  79%|███████▉  | 162/204 [00:23<00:05,  7.25it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  79%|███████▉  | 162/204 [00:23<00:05,  7.25it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  80%|███████▉  | 163/204 [00:23<00:05,  7.25it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  80%|███████▉  | 163/204 [00:23<00:05,  7.25it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  80%|████████  | 164/204 [00:23<00:05,  7.24it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  80%|████████  | 164/204 [00:23<00:05,  7.24it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  81%|████████  | 165/204 [00:23<00:05,  7.24it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  81%|████████  | 165/204 [00:24<00:05,  7.24it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  81%|████████▏ | 166/204 [00:24<00:05,  7.23it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  81%|████████▏ | 166/204 [00:24<00:05,  7.23it/s, accuracy=0.068, loss=nan] [A
-Evaluating svhn:  82%|████████▏ | 167/204 [00:24<00:05,  7.22it/s, accuracy=0.068, loss=nan][A
-Evaluating svhn:  82%|████████▏ | 167/204 [00:24<00:05,  7.22it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  82%|████████▏ | 168/204 [00:24<00:04,  7.22it/s, accuracy=0.0679, loss=nan][A
-Evaluating svhn:  82%|████████▏ | 168/204 [00:24<00:04,  7.22it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  83%|████████▎ | 169/204 [00:24<00:04,  7.21it/s, accuracy=0.0678, loss=nan][A
-Evaluating svhn:  83%|████████▎ | 169/204 [00:24<00:04,  7.21it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  83%|████████▎ | 170/204 [00:24<00:04,  7.21it/s, accuracy=0.0677, loss=nan][A
-Evaluating svhn:  83%|████████▎ | 170/204 [00:24<00:04,  7.21it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  84%|████████▍ | 171/204 [00:24<00:04,  7.22it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  84%|████████▍ | 171/204 [00:24<00:04,  7.22it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  84%|████████▍ | 172/204 [00:24<00:04,  7.22it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  84%|████████▍ | 172/204 [00:24<00:04,  7.22it/s, accuracy=0.0673, loss=nan][A
-Evaluating svhn:  85%|████████▍ | 173/204 [00:24<00:04,  7.23it/s, accuracy=0.0673, loss=nan][A
-Evaluating svhn:  85%|████████▍ | 173/204 [00:25<00:04,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  85%|████████▌ | 174/204 [00:25<00:04,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  85%|████████▌ | 174/204 [00:25<00:04,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  86%|████████▌ | 175/204 [00:25<00:04,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  86%|████████▌ | 175/204 [00:25<00:04,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  86%|████████▋ | 176/204 [00:25<00:03,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  86%|████████▋ | 176/204 [00:25<00:03,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  87%|████████▋ | 177/204 [00:25<00:03,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  87%|████████▋ | 177/204 [00:25<00:03,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  87%|████████▋ | 178/204 [00:25<00:03,  7.24it/s, accuracy=0.0676, loss=nan][A
-Evaluating svhn:  87%|████████▋ | 178/204 [00:25<00:03,  7.24it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  88%|████████▊ | 179/204 [00:25<00:03,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  88%|████████▊ | 179/204 [00:25<00:03,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  88%|████████▊ | 180/204 [00:25<00:03,  7.23it/s, accuracy=0.0675, loss=nan][A
-Evaluating svhn:  88%|████████▊ | 180/204 [00:26<00:03,  7.23it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  89%|████████▊ | 181/204 [00:26<00:03,  7.23it/s, accuracy=0.0674, loss=nan][A
-Evaluating svhn:  89%|████████▊ | 181/204 [00:26<00:03,  7.23it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  89%|████████▉ | 182/204 [00:26<00:03,  7.23it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  89%|████████▉ | 182/204 [00:26<00:03,  7.23it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  90%|████████▉ | 183/204 [00:26<00:02,  7.23it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  90%|████████▉ | 183/204 [00:26<00:02,  7.23it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  90%|█████████ | 184/204 [00:26<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  90%|█████████ | 184/204 [00:26<00:02,  7.24it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  91%|█████████ | 185/204 [00:26<00:02,  7.24it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  91%|█████████ | 185/204 [00:26<00:02,  7.24it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  91%|█████████ | 186/204 [00:26<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  91%|█████████ | 186/204 [00:26<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  92%|█████████▏| 187/204 [00:26<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  92%|█████████▏| 187/204 [00:27<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  92%|█████████▏| 188/204 [00:27<00:02,  7.24it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  92%|█████████▏| 188/204 [00:27<00:02,  7.24it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  93%|█████████▎| 189/204 [00:27<00:02,  7.24it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  93%|█████████▎| 189/204 [00:27<00:02,  7.24it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  93%|█████████▎| 190/204 [00:27<00:01,  7.25it/s, accuracy=0.0671, loss=nan][A
-Evaluating svhn:  93%|█████████▎| 190/204 [00:27<00:01,  7.25it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  94%|█████████▎| 191/204 [00:27<00:01,  7.26it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  94%|█████████▎| 191/204 [00:27<00:01,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  94%|█████████▍| 192/204 [00:27<00:01,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  94%|█████████▍| 192/204 [00:27<00:01,  7.26it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  95%|█████████▍| 193/204 [00:27<00:01,  7.27it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  95%|█████████▍| 193/204 [00:27<00:01,  7.27it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  95%|█████████▌| 194/204 [00:27<00:01,  7.27it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  95%|█████████▌| 194/204 [00:28<00:01,  7.27it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  96%|█████████▌| 195/204 [00:28<00:01,  7.26it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  96%|█████████▌| 195/204 [00:28<00:01,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  96%|█████████▌| 196/204 [00:28<00:01,  7.25it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  96%|█████████▌| 196/204 [00:28<00:01,  7.25it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  97%|█████████▋| 197/204 [00:28<00:00,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  97%|█████████▋| 197/204 [00:28<00:00,  7.26it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  97%|█████████▋| 198/204 [00:28<00:00,  7.26it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  97%|█████████▋| 198/204 [00:28<00:00,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  98%|█████████▊| 199/204 [00:28<00:00,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  98%|█████████▊| 199/204 [00:28<00:00,  7.26it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn:  98%|█████████▊| 200/204 [00:28<00:00,  7.27it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn:  98%|█████████▊| 200/204 [00:28<00:00,  7.27it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  99%|█████████▊| 201/204 [00:28<00:00,  7.25it/s, accuracy=0.0668, loss=nan][A
-Evaluating svhn:  99%|█████████▊| 201/204 [00:28<00:00,  7.25it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  99%|█████████▉| 202/204 [00:28<00:00,  7.26it/s, accuracy=0.0669, loss=nan][A
-Evaluating svhn:  99%|█████████▉| 202/204 [00:29<00:00,  7.26it/s, accuracy=0.067, loss=nan] [A
-Evaluating svhn: 100%|█████████▉| 203/204 [00:29<00:00,  7.26it/s, accuracy=0.067, loss=nan][A
-Evaluating svhn: 100%|█████████▉| 203/204 [00:29<00:00,  7.26it/s, accuracy=0.067, loss=nan][A
-                                                                                            [AEvaluating tasks:  57%|█████▋    | 4/7 [00:56<00:49, 16.38s/it]
-Evaluating gtsrb:   0%|          | 0/99 [00:00<?, ?it/s][A
-Evaluating gtsrb:   0%|          | 0/99 [00:01<?, ?it/s, accuracy=0.469, loss=nan][A
-Evaluating gtsrb:   1%|          | 1/99 [00:01<01:53,  1.16s/it, accuracy=0.469, loss=nan][A
-Evaluating gtsrb:   1%|          | 1/99 [00:01<01:53,  1.16s/it, accuracy=0.234, loss=nan][A
-Evaluating gtsrb:   2%|▏         | 2/99 [00:01<00:54,  1.79it/s, accuracy=0.234, loss=nan][A
-Evaluating gtsrb:   2%|▏         | 2/99 [00:01<00:54,  1.79it/s, accuracy=0.156, loss=nan][A
-Evaluating gtsrb:   3%|▎         | 3/99 [00:01<00:35,  2.73it/s, accuracy=0.156, loss=nan][A
-Evaluating gtsrb:   3%|▎         | 3/99 [00:01<00:35,  2.73it/s, accuracy=0.117, loss=nan][A
-Evaluating gtsrb:   4%|▍         | 4/99 [00:01<00:26,  3.62it/s, accuracy=0.117, loss=nan][A
-Evaluating gtsrb:   4%|▍         | 4/99 [00:01<00:26,  3.62it/s, accuracy=0.0938, loss=nan][A
-Evaluating gtsrb:   5%|▌         | 5/99 [00:01<00:21,  4.41it/s, accuracy=0.0938, loss=nan][A
-Evaluating gtsrb:   5%|▌         | 5/99 [00:01<00:21,  4.41it/s, accuracy=0.0781, loss=nan][A
-Evaluating gtsrb:   6%|▌         | 6/99 [00:01<00:18,  5.09it/s, accuracy=0.0781, loss=nan][A
-Evaluating gtsrb:   6%|▌         | 6/99 [00:01<00:18,  5.09it/s, accuracy=0.067, loss=nan] [A
-Evaluating gtsrb:   7%|▋         | 7/99 [00:01<00:16,  5.63it/s, accuracy=0.067, loss=nan][A
-Evaluating gtsrb:   7%|▋         | 7/99 [00:02<00:16,  5.63it/s, accuracy=0.0586, loss=nan][A
-Evaluating gtsrb:   8%|▊         | 8/99 [00:02<00:15,  6.06it/s, accuracy=0.0586, loss=nan][A
-Evaluating gtsrb:   8%|▊         | 8/99 [00:02<00:15,  6.06it/s, accuracy=0.0521, loss=nan][A
-Evaluating gtsrb:   9%|▉         | 9/99 [00:02<00:14,  6.38it/s, accuracy=0.0521, loss=nan][A
-Evaluating gtsrb:   9%|▉         | 9/99 [00:02<00:14,  6.38it/s, accuracy=0.0469, loss=nan][A
-Evaluating gtsrb:  10%|█         | 10/99 [00:02<00:13,  6.62it/s, accuracy=0.0469, loss=nan][A
-Evaluating gtsrb:  10%|█         | 10/99 [00:02<00:13,  6.62it/s, accuracy=0.0426, loss=nan][A
-Evaluating gtsrb:  11%|█         | 11/99 [00:02<00:12,  6.80it/s, accuracy=0.0426, loss=nan][A
-Evaluating gtsrb:  11%|█         | 11/99 [00:02<00:12,  6.80it/s, accuracy=0.0391, loss=nan][A
-Evaluating gtsrb:  12%|█▏        | 12/99 [00:02<00:12,  6.92it/s, accuracy=0.0391, loss=nan][A
-Evaluating gtsrb:  12%|█▏        | 12/99 [00:02<00:12,  6.92it/s, accuracy=0.0361, loss=nan][A
-Evaluating gtsrb:  13%|█▎        | 13/99 [00:02<00:12,  7.01it/s, accuracy=0.0361, loss=nan][A
-Evaluating gtsrb:  13%|█▎        | 13/99 [00:02<00:12,  7.01it/s, accuracy=0.0335, loss=nan][A
-Evaluating gtsrb:  14%|█▍        | 14/99 [00:02<00:11,  7.08it/s, accuracy=0.0335, loss=nan][A
-Evaluating gtsrb:  14%|█▍        | 14/99 [00:03<00:11,  7.08it/s, accuracy=0.0312, loss=nan][A
-Evaluating gtsrb:  15%|█▌        | 15/99 [00:03<00:11,  7.12it/s, accuracy=0.0312, loss=nan][A
-Evaluating gtsrb:  15%|█▌        | 15/99 [00:03<00:11,  7.12it/s, accuracy=0.0293, loss=nan][A
-Evaluating gtsrb:  16%|█▌        | 16/99 [00:03<00:11,  7.15it/s, accuracy=0.0293, loss=nan][A
-Evaluating gtsrb:  16%|█▌        | 16/99 [00:03<00:11,  7.15it/s, accuracy=0.0276, loss=nan][A
-Evaluating gtsrb:  17%|█▋        | 17/99 [00:03<00:11,  7.18it/s, accuracy=0.0276, loss=nan][A
-Evaluating gtsrb:  17%|█▋        | 17/99 [00:03<00:11,  7.18it/s, accuracy=0.026, loss=nan] [A
-Evaluating gtsrb:  18%|█▊        | 18/99 [00:03<00:11,  7.20it/s, accuracy=0.026, loss=nan][A
-Evaluating gtsrb:  18%|█▊        | 18/99 [00:03<00:11,  7.20it/s, accuracy=0.0247, loss=nan][A
-Evaluating gtsrb:  19%|█▉        | 19/99 [00:03<00:11,  7.22it/s, accuracy=0.0247, loss=nan][A
-Evaluating gtsrb:  19%|█▉        | 19/99 [00:03<00:11,  7.22it/s, accuracy=0.0234, loss=nan][A
-Evaluating gtsrb:  20%|██        | 20/99 [00:03<00:10,  7.23it/s, accuracy=0.0234, loss=nan][A
-Evaluating gtsrb:  20%|██        | 20/99 [00:03<00:10,  7.23it/s, accuracy=0.0223, loss=nan][A
-Evaluating gtsrb:  21%|██        | 21/99 [00:03<00:10,  7.23it/s, accuracy=0.0223, loss=nan][A
-Evaluating gtsrb:  21%|██        | 21/99 [00:04<00:10,  7.23it/s, accuracy=0.0213, loss=nan][A
-Evaluating gtsrb:  22%|██▏       | 22/99 [00:04<00:10,  7.24it/s, accuracy=0.0213, loss=nan][A
-Evaluating gtsrb:  22%|██▏       | 22/99 [00:04<00:10,  7.24it/s, accuracy=0.0204, loss=nan][A
-Evaluating gtsrb:  23%|██▎       | 23/99 [00:04<00:10,  7.24it/s, accuracy=0.0204, loss=nan][A
-Evaluating gtsrb:  23%|██▎       | 23/99 [00:04<00:10,  7.24it/s, accuracy=0.0195, loss=nan][A
-Evaluating gtsrb:  24%|██▍       | 24/99 [00:04<00:10,  7.24it/s, accuracy=0.0195, loss=nan][A
-Evaluating gtsrb:  24%|██▍       | 24/99 [00:04<00:10,  7.24it/s, accuracy=0.0188, loss=nan][A
-Evaluating gtsrb:  25%|██▌       | 25/99 [00:04<00:10,  7.25it/s, accuracy=0.0188, loss=nan][A
-Evaluating gtsrb:  25%|██▌       | 25/99 [00:04<00:10,  7.25it/s, accuracy=0.018, loss=nan] [A
-Evaluating gtsrb:  26%|██▋       | 26/99 [00:04<00:10,  7.24it/s, accuracy=0.018, loss=nan][A
-Evaluating gtsrb:  26%|██▋       | 26/99 [00:04<00:10,  7.24it/s, accuracy=0.0174, loss=nan][A
-Evaluating gtsrb:  27%|██▋       | 27/99 [00:04<00:09,  7.23it/s, accuracy=0.0174, loss=nan][A
-Evaluating gtsrb:  27%|██▋       | 27/99 [00:04<00:09,  7.23it/s, accuracy=0.0167, loss=nan][A
-Evaluating gtsrb:  28%|██▊       | 28/99 [00:04<00:09,  7.22it/s, accuracy=0.0167, loss=nan][A
-Evaluating gtsrb:  28%|██▊       | 28/99 [00:05<00:09,  7.22it/s, accuracy=0.0162, loss=nan][A
-Evaluating gtsrb:  29%|██▉       | 29/99 [00:05<00:09,  7.23it/s, accuracy=0.0162, loss=nan][A
-Evaluating gtsrb:  29%|██▉       | 29/99 [00:05<00:09,  7.23it/s, accuracy=0.0156, loss=nan][A
-Evaluating gtsrb:  30%|███       | 30/99 [00:05<00:09,  7.23it/s, accuracy=0.0156, loss=nan][A
-Evaluating gtsrb:  30%|███       | 30/99 [00:05<00:09,  7.23it/s, accuracy=0.0151, loss=nan][A
-Evaluating gtsrb:  31%|███▏      | 31/99 [00:05<00:09,  7.22it/s, accuracy=0.0151, loss=nan][A
-Evaluating gtsrb:  31%|███▏      | 31/99 [00:05<00:09,  7.22it/s, accuracy=0.0146, loss=nan][A
-Evaluating gtsrb:  32%|███▏      | 32/99 [00:05<00:09,  7.23it/s, accuracy=0.0146, loss=nan][A
-Evaluating gtsrb:  32%|███▏      | 32/99 [00:05<00:09,  7.23it/s, accuracy=0.0142, loss=nan][A
-Evaluating gtsrb:  33%|███▎      | 33/99 [00:05<00:09,  7.24it/s, accuracy=0.0142, loss=nan][A
-Evaluating gtsrb:  33%|███▎      | 33/99 [00:05<00:09,  7.24it/s, accuracy=0.0138, loss=nan][A
-Evaluating gtsrb:  34%|███▍      | 34/99 [00:05<00:08,  7.23it/s, accuracy=0.0138, loss=nan][A
-Evaluating gtsrb:  34%|███▍      | 34/99 [00:05<00:08,  7.23it/s, accuracy=0.0134, loss=nan][A
-Evaluating gtsrb:  35%|███▌      | 35/99 [00:05<00:08,  7.24it/s, accuracy=0.0134, loss=nan][A
-Evaluating gtsrb:  35%|███▌      | 35/99 [00:05<00:08,  7.24it/s, accuracy=0.013, loss=nan] [A
-Evaluating gtsrb:  36%|███▋      | 36/99 [00:05<00:08,  7.23it/s, accuracy=0.013, loss=nan][A
-Evaluating gtsrb:  36%|███▋      | 36/99 [00:06<00:08,  7.23it/s, accuracy=0.0127, loss=nan][A
-Evaluating gtsrb:  37%|███▋      | 37/99 [00:06<00:08,  7.24it/s, accuracy=0.0127, loss=nan][A
-Evaluating gtsrb:  37%|███▋      | 37/99 [00:06<00:08,  7.24it/s, accuracy=0.0123, loss=nan][A
-Evaluating gtsrb:  38%|███▊      | 38/99 [00:06<00:08,  7.24it/s, accuracy=0.0123, loss=nan][A
-Evaluating gtsrb:  38%|███▊      | 38/99 [00:06<00:08,  7.24it/s, accuracy=0.012, loss=nan] [A
-Evaluating gtsrb:  39%|███▉      | 39/99 [00:06<00:08,  7.22it/s, accuracy=0.012, loss=nan][A
-Evaluating gtsrb:  39%|███▉      | 39/99 [00:06<00:08,  7.22it/s, accuracy=0.0117, loss=nan][A
-Evaluating gtsrb:  40%|████      | 40/99 [00:06<00:08,  7.22it/s, accuracy=0.0117, loss=nan][A
-Evaluating gtsrb:  40%|████      | 40/99 [00:06<00:08,  7.22it/s, accuracy=0.0114, loss=nan][A
-Evaluating gtsrb:  41%|████▏     | 41/99 [00:06<00:08,  7.22it/s, accuracy=0.0114, loss=nan][A
-Evaluating gtsrb:  41%|████▏     | 41/99 [00:06<00:08,  7.22it/s, accuracy=0.0112, loss=nan][A
-Evaluating gtsrb:  42%|████▏     | 42/99 [00:06<00:07,  7.23it/s, accuracy=0.0112, loss=nan][A
-Evaluating gtsrb:  42%|████▏     | 42/99 [00:06<00:07,  7.23it/s, accuracy=0.0109, loss=nan][A
-Evaluating gtsrb:  43%|████▎     | 43/99 [00:06<00:07,  7.24it/s, accuracy=0.0109, loss=nan][A
-Evaluating gtsrb:  43%|████▎     | 43/99 [00:07<00:07,  7.24it/s, accuracy=0.0107, loss=nan][A
-Evaluating gtsrb:  44%|████▍     | 44/99 [00:07<00:07,  7.24it/s, accuracy=0.0107, loss=nan][A
-Evaluating gtsrb:  44%|████▍     | 44/99 [00:07<00:07,  7.24it/s, accuracy=0.0104, loss=nan][A
-Evaluating gtsrb:  45%|████▌     | 45/99 [00:07<00:07,  7.25it/s, accuracy=0.0104, loss=nan][A
-Evaluating gtsrb:  45%|████▌     | 45/99 [00:07<00:07,  7.25it/s, accuracy=0.0102, loss=nan][A
-Evaluating gtsrb:  46%|████▋     | 46/99 [00:07<00:07,  7.25it/s, accuracy=0.0102, loss=nan][A
-Evaluating gtsrb:  46%|████▋     | 46/99 [00:07<00:07,  7.25it/s, accuracy=0.00997, loss=nan][A
-Evaluating gtsrb:  47%|████▋     | 47/99 [00:07<00:07,  7.25it/s, accuracy=0.00997, loss=nan][A
-Evaluating gtsrb:  47%|████▋     | 47/99 [00:07<00:07,  7.25it/s, accuracy=0.00977, loss=nan][A
-Evaluating gtsrb:  48%|████▊     | 48/99 [00:07<00:07,  7.24it/s, accuracy=0.00977, loss=nan][A
-Evaluating gtsrb:  48%|████▊     | 48/99 [00:07<00:07,  7.24it/s, accuracy=0.00957, loss=nan][A
-Evaluating gtsrb:  49%|████▉     | 49/99 [00:07<00:06,  7.24it/s, accuracy=0.00957, loss=nan][A
-Evaluating gtsrb:  49%|████▉     | 49/99 [00:07<00:06,  7.24it/s, accuracy=0.00938, loss=nan][A
-Evaluating gtsrb:  51%|█████     | 50/99 [00:07<00:06,  7.24it/s, accuracy=0.00938, loss=nan][A
-Evaluating gtsrb:  51%|█████     | 50/99 [00:08<00:06,  7.24it/s, accuracy=0.00919, loss=nan][A
-Evaluating gtsrb:  52%|█████▏    | 51/99 [00:08<00:06,  7.23it/s, accuracy=0.00919, loss=nan][A
-Evaluating gtsrb:  52%|█████▏    | 51/99 [00:08<00:06,  7.23it/s, accuracy=0.00901, loss=nan][A
-Evaluating gtsrb:  53%|█████▎    | 52/99 [00:08<00:06,  7.24it/s, accuracy=0.00901, loss=nan][A
-Evaluating gtsrb:  53%|█████▎    | 52/99 [00:08<00:06,  7.24it/s, accuracy=0.00884, loss=nan][A
-Evaluating gtsrb:  54%|█████▎    | 53/99 [00:08<00:06,  7.24it/s, accuracy=0.00884, loss=nan][A
-Evaluating gtsrb:  54%|█████▎    | 53/99 [00:08<00:06,  7.24it/s, accuracy=0.00868, loss=nan][A
-Evaluating gtsrb:  55%|█████▍    | 54/99 [00:08<00:06,  7.24it/s, accuracy=0.00868, loss=nan][A
-Evaluating gtsrb:  55%|█████▍    | 54/99 [00:08<00:06,  7.24it/s, accuracy=0.00852, loss=nan][A
-Evaluating gtsrb:  56%|█████▌    | 55/99 [00:08<00:06,  7.24it/s, accuracy=0.00852, loss=nan][A
-Evaluating gtsrb:  56%|█████▌    | 55/99 [00:08<00:06,  7.24it/s, accuracy=0.00837, loss=nan][A
-Evaluating gtsrb:  57%|█████▋    | 56/99 [00:08<00:05,  7.25it/s, accuracy=0.00837, loss=nan][A
-Evaluating gtsrb:  57%|█████▋    | 56/99 [00:08<00:05,  7.25it/s, accuracy=0.00822, loss=nan][A
-Evaluating gtsrb:  58%|█████▊    | 57/99 [00:08<00:05,  7.25it/s, accuracy=0.00822, loss=nan][A
-Evaluating gtsrb:  58%|█████▊    | 57/99 [00:09<00:05,  7.25it/s, accuracy=0.00808, loss=nan][A
-Evaluating gtsrb:  59%|█████▊    | 58/99 [00:09<00:05,  7.23it/s, accuracy=0.00808, loss=nan][A
-Evaluating gtsrb:  59%|█████▊    | 58/99 [00:09<00:05,  7.23it/s, accuracy=0.00794, loss=nan][A
-Evaluating gtsrb:  60%|█████▉    | 59/99 [00:09<00:05,  7.24it/s, accuracy=0.00794, loss=nan][A
-Evaluating gtsrb:  60%|█████▉    | 59/99 [00:09<00:05,  7.24it/s, accuracy=0.00781, loss=nan][A
-Evaluating gtsrb:  61%|██████    | 60/99 [00:09<00:05,  7.24it/s, accuracy=0.00781, loss=nan][A
-Evaluating gtsrb:  61%|██████    | 60/99 [00:09<00:05,  7.24it/s, accuracy=0.00768, loss=nan][A
-Evaluating gtsrb:  62%|██████▏   | 61/99 [00:09<00:05,  7.24it/s, accuracy=0.00768, loss=nan][A
-Evaluating gtsrb:  62%|██████▏   | 61/99 [00:09<00:05,  7.24it/s, accuracy=0.00756, loss=nan][A
-Evaluating gtsrb:  63%|██████▎   | 62/99 [00:09<00:05,  7.24it/s, accuracy=0.00756, loss=nan][A
-Evaluating gtsrb:  63%|██████▎   | 62/99 [00:09<00:05,  7.24it/s, accuracy=0.00744, loss=nan][A
-Evaluating gtsrb:  64%|██████▎   | 63/99 [00:09<00:04,  7.23it/s, accuracy=0.00744, loss=nan][A
-Evaluating gtsrb:  64%|██████▎   | 63/99 [00:09<00:04,  7.23it/s, accuracy=0.00732, loss=nan][A
-Evaluating gtsrb:  65%|██████▍   | 64/99 [00:09<00:04,  7.23it/s, accuracy=0.00732, loss=nan][A
-Evaluating gtsrb:  65%|██████▍   | 64/99 [00:10<00:04,  7.23it/s, accuracy=0.00721, loss=nan][A
-Evaluating gtsrb:  66%|██████▌   | 65/99 [00:10<00:04,  7.24it/s, accuracy=0.00721, loss=nan][A
-Evaluating gtsrb:  66%|██████▌   | 65/99 [00:10<00:04,  7.24it/s, accuracy=0.0071, loss=nan] [A
-Evaluating gtsrb:  67%|██████▋   | 66/99 [00:10<00:04,  7.24it/s, accuracy=0.0071, loss=nan][A
-Evaluating gtsrb:  67%|██████▋   | 66/99 [00:10<00:04,  7.24it/s, accuracy=0.007, loss=nan] [A
-Evaluating gtsrb:  68%|██████▊   | 67/99 [00:10<00:04,  7.25it/s, accuracy=0.007, loss=nan][A
-Evaluating gtsrb:  68%|██████▊   | 67/99 [00:10<00:04,  7.25it/s, accuracy=0.00689, loss=nan][A
-Evaluating gtsrb:  69%|██████▊   | 68/99 [00:10<00:04,  7.25it/s, accuracy=0.00689, loss=nan][A
-Evaluating gtsrb:  69%|██████▊   | 68/99 [00:10<00:04,  7.25it/s, accuracy=0.00679, loss=nan][A
-Evaluating gtsrb:  70%|██████▉   | 69/99 [00:10<00:04,  7.25it/s, accuracy=0.00679, loss=nan][A
-Evaluating gtsrb:  70%|██████▉   | 69/99 [00:10<00:04,  7.25it/s, accuracy=0.0067, loss=nan] [A
-Evaluating gtsrb:  71%|███████   | 70/99 [00:10<00:04,  7.23it/s, accuracy=0.0067, loss=nan][A
-Evaluating gtsrb:  71%|███████   | 70/99 [00:10<00:04,  7.23it/s, accuracy=0.0066, loss=nan][A
-Evaluating gtsrb:  72%|███████▏  | 71/99 [00:10<00:03,  7.22it/s, accuracy=0.0066, loss=nan][A
-Evaluating gtsrb:  72%|███████▏  | 71/99 [00:10<00:03,  7.22it/s, accuracy=0.00651, loss=nan][A
-Evaluating gtsrb:  73%|███████▎  | 72/99 [00:10<00:03,  7.23it/s, accuracy=0.00651, loss=nan][A
-Evaluating gtsrb:  73%|███████▎  | 72/99 [00:11<00:03,  7.23it/s, accuracy=0.00642, loss=nan][A
-Evaluating gtsrb:  74%|███████▎  | 73/99 [00:11<00:03,  7.23it/s, accuracy=0.00642, loss=nan][A
-Evaluating gtsrb:  74%|███████▎  | 73/99 [00:11<00:03,  7.23it/s, accuracy=0.00633, loss=nan][A
-Evaluating gtsrb:  75%|███████▍  | 74/99 [00:11<00:03,  7.23it/s, accuracy=0.00633, loss=nan][A
-Evaluating gtsrb:  75%|███████▍  | 74/99 [00:11<00:03,  7.23it/s, accuracy=0.00625, loss=nan][A
-Evaluating gtsrb:  76%|███████▌  | 75/99 [00:11<00:03,  7.24it/s, accuracy=0.00625, loss=nan][A
-Evaluating gtsrb:  76%|███████▌  | 75/99 [00:11<00:03,  7.24it/s, accuracy=0.00617, loss=nan][A
-Evaluating gtsrb:  77%|███████▋  | 76/99 [00:11<00:03,  7.23it/s, accuracy=0.00617, loss=nan][A
-Evaluating gtsrb:  77%|███████▋  | 76/99 [00:11<00:03,  7.23it/s, accuracy=0.00609, loss=nan][A
-Evaluating gtsrb:  78%|███████▊  | 77/99 [00:11<00:03,  7.22it/s, accuracy=0.00609, loss=nan][A
-Evaluating gtsrb:  78%|███████▊  | 77/99 [00:11<00:03,  7.22it/s, accuracy=0.00601, loss=nan][A
-Evaluating gtsrb:  79%|███████▉  | 78/99 [00:11<00:02,  7.23it/s, accuracy=0.00601, loss=nan][A
-Evaluating gtsrb:  79%|███████▉  | 78/99 [00:11<00:02,  7.23it/s, accuracy=0.00593, loss=nan][A
-Evaluating gtsrb:  80%|███████▉  | 79/99 [00:11<00:02,  7.24it/s, accuracy=0.00593, loss=nan][A
-Evaluating gtsrb:  80%|███████▉  | 79/99 [00:12<00:02,  7.24it/s, accuracy=0.00586, loss=nan][A
-Evaluating gtsrb:  81%|████████  | 80/99 [00:12<00:02,  7.24it/s, accuracy=0.00586, loss=nan][A
-Evaluating gtsrb:  81%|████████  | 80/99 [00:12<00:02,  7.24it/s, accuracy=0.00579, loss=nan][A
-Evaluating gtsrb:  82%|████████▏ | 81/99 [00:12<00:02,  7.24it/s, accuracy=0.00579, loss=nan][A
-Evaluating gtsrb:  82%|████████▏ | 81/99 [00:12<00:02,  7.24it/s, accuracy=0.00572, loss=nan][A
-Evaluating gtsrb:  83%|████████▎ | 82/99 [00:12<00:02,  7.24it/s, accuracy=0.00572, loss=nan][A
-Evaluating gtsrb:  83%|████████▎ | 82/99 [00:12<00:02,  7.24it/s, accuracy=0.00565, loss=nan][A
-Evaluating gtsrb:  84%|████████▍ | 83/99 [00:12<00:02,  7.25it/s, accuracy=0.00565, loss=nan][A
-Evaluating gtsrb:  84%|████████▍ | 83/99 [00:12<00:02,  7.25it/s, accuracy=0.00558, loss=nan][A
-Evaluating gtsrb:  85%|████████▍ | 84/99 [00:12<00:02,  7.25it/s, accuracy=0.00558, loss=nan][A
-Evaluating gtsrb:  85%|████████▍ | 84/99 [00:12<00:02,  7.25it/s, accuracy=0.00551, loss=nan][A
-Evaluating gtsrb:  86%|████████▌ | 85/99 [00:12<00:01,  7.26it/s, accuracy=0.00551, loss=nan][A
-Evaluating gtsrb:  86%|████████▌ | 85/99 [00:12<00:01,  7.26it/s, accuracy=0.00545, loss=nan][A
-Evaluating gtsrb:  87%|████████▋ | 86/99 [00:12<00:01,  7.26it/s, accuracy=0.00545, loss=nan][A
-Evaluating gtsrb:  87%|████████▋ | 86/99 [00:13<00:01,  7.26it/s, accuracy=0.00539, loss=nan][A
-Evaluating gtsrb:  88%|████████▊ | 87/99 [00:13<00:01,  7.24it/s, accuracy=0.00539, loss=nan][A
-Evaluating gtsrb:  88%|████████▊ | 87/99 [00:13<00:01,  7.24it/s, accuracy=0.00533, loss=nan][A
-Evaluating gtsrb:  89%|████████▉ | 88/99 [00:13<00:01,  7.25it/s, accuracy=0.00533, loss=nan][A
-Evaluating gtsrb:  89%|████████▉ | 88/99 [00:13<00:01,  7.25it/s, accuracy=0.00527, loss=nan][A
-Evaluating gtsrb:  90%|████████▉ | 89/99 [00:13<00:01,  7.25it/s, accuracy=0.00527, loss=nan][A
-Evaluating gtsrb:  90%|████████▉ | 89/99 [00:13<00:01,  7.25it/s, accuracy=0.00521, loss=nan][A
-Evaluating gtsrb:  91%|█████████ | 90/99 [00:13<00:01,  7.26it/s, accuracy=0.00521, loss=nan][A
-Evaluating gtsrb:  91%|█████████ | 90/99 [00:13<00:01,  7.26it/s, accuracy=0.00515, loss=nan][A
-Evaluating gtsrb:  92%|█████████▏| 91/99 [00:13<00:01,  7.26it/s, accuracy=0.00515, loss=nan][A
-Evaluating gtsrb:  92%|█████████▏| 91/99 [00:13<00:01,  7.26it/s, accuracy=0.0051, loss=nan] [A
-Evaluating gtsrb:  93%|█████████▎| 92/99 [00:13<00:00,  7.26it/s, accuracy=0.0051, loss=nan][A
-Evaluating gtsrb:  93%|█████████▎| 92/99 [00:13<00:00,  7.26it/s, accuracy=0.00504, loss=nan][A
-Evaluating gtsrb:  94%|█████████▍| 93/99 [00:13<00:00,  7.27it/s, accuracy=0.00504, loss=nan][A
-Evaluating gtsrb:  94%|█████████▍| 93/99 [00:14<00:00,  7.27it/s, accuracy=0.00499, loss=nan][A
-Evaluating gtsrb:  95%|█████████▍| 94/99 [00:14<00:00,  7.25it/s, accuracy=0.00499, loss=nan][A
-Evaluating gtsrb:  95%|█████████▍| 94/99 [00:14<00:00,  7.25it/s, accuracy=0.00493, loss=nan][A
-Evaluating gtsrb:  96%|█████████▌| 95/99 [00:14<00:00,  7.24it/s, accuracy=0.00493, loss=nan][A
-Evaluating gtsrb:  96%|█████████▌| 95/99 [00:14<00:00,  7.24it/s, accuracy=0.00488, loss=nan][A
-Evaluating gtsrb:  97%|█████████▋| 96/99 [00:14<00:00,  7.23it/s, accuracy=0.00488, loss=nan][A
-Evaluating gtsrb:  97%|█████████▋| 96/99 [00:14<00:00,  7.23it/s, accuracy=0.00483, loss=nan][A
-Evaluating gtsrb:  98%|█████████▊| 97/99 [00:14<00:00,  7.24it/s, accuracy=0.00483, loss=nan][A
-Evaluating gtsrb:  98%|█████████▊| 97/99 [00:14<00:00,  7.24it/s, accuracy=0.00478, loss=nan][A
-Evaluating gtsrb:  99%|█████████▉| 98/99 [00:14<00:00,  7.24it/s, accuracy=0.00478, loss=nan][A
-Evaluating gtsrb:  99%|█████████▉| 98/99 [00:14<00:00,  7.24it/s, accuracy=0.00475, loss=nan][A
-                                                                                             [AEvaluating tasks:  71%|███████▏  | 5/7 [01:11<00:31, 15.87s/it]
-Evaluating mnist:   0%|          | 0/79 [00:00<?, ?it/s][A
-Evaluating mnist:   0%|          | 0/79 [00:01<?, ?it/s, accuracy=0.0781, loss=nan][A
-Evaluating mnist:   1%|▏         | 1/79 [00:01<01:52,  1.44s/it, accuracy=0.0781, loss=nan][A
-Evaluating mnist:   1%|▏         | 1/79 [00:01<01:52,  1.44s/it, accuracy=0.0742, loss=nan][A
-Evaluating mnist:   3%|▎         | 2/79 [00:01<00:51,  1.48it/s, accuracy=0.0742, loss=nan][A
-Evaluating mnist:   3%|▎         | 2/79 [00:01<00:51,  1.48it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:   4%|▍         | 3/79 [00:01<00:32,  2.33it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:   4%|▍         | 3/79 [00:01<00:32,  2.33it/s, accuracy=0.082, loss=nan] [A
-Evaluating mnist:   5%|▌         | 4/79 [00:01<00:23,  3.18it/s, accuracy=0.082, loss=nan][A
-Evaluating mnist:   5%|▌         | 4/79 [00:01<00:23,  3.18it/s, accuracy=0.0875, loss=nan][A
-Evaluating mnist:   6%|▋         | 5/79 [00:01<00:18,  3.99it/s, accuracy=0.0875, loss=nan][A
-Evaluating mnist:   6%|▋         | 5/79 [00:02<00:18,  3.99it/s, accuracy=0.0898, loss=nan][A
-Evaluating mnist:   8%|▊         | 6/79 [00:02<00:15,  4.70it/s, accuracy=0.0898, loss=nan][A
-Evaluating mnist:   8%|▊         | 6/79 [00:02<00:15,  4.70it/s, accuracy=0.0871, loss=nan][A
-Evaluating mnist:   9%|▉         | 7/79 [00:02<00:13,  5.30it/s, accuracy=0.0871, loss=nan][A
-Evaluating mnist:   9%|▉         | 7/79 [00:02<00:13,  5.30it/s, accuracy=0.085, loss=nan] [A
-Evaluating mnist:  10%|█         | 8/79 [00:02<00:12,  5.79it/s, accuracy=0.085, loss=nan][A
-Evaluating mnist:  10%|█         | 8/79 [00:02<00:12,  5.79it/s, accuracy=0.0816, loss=nan][A
-Evaluating mnist:  11%|█▏        | 9/79 [00:02<00:11,  6.18it/s, accuracy=0.0816, loss=nan][A
-Evaluating mnist:  11%|█▏        | 9/79 [00:02<00:11,  6.18it/s, accuracy=0.0852, loss=nan][A
-Evaluating mnist:  13%|█▎        | 10/79 [00:02<00:10,  6.46it/s, accuracy=0.0852, loss=nan][A
-Evaluating mnist:  13%|█▎        | 10/79 [00:02<00:10,  6.46it/s, accuracy=0.0831, loss=nan][A
-Evaluating mnist:  14%|█▍        | 11/79 [00:02<00:10,  6.68it/s, accuracy=0.0831, loss=nan][A
-Evaluating mnist:  14%|█▍        | 11/79 [00:02<00:10,  6.68it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  15%|█▌        | 12/79 [00:02<00:09,  6.84it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  15%|█▌        | 12/79 [00:03<00:09,  6.84it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  16%|█▋        | 13/79 [00:03<00:09,  6.96it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  16%|█▋        | 13/79 [00:03<00:09,  6.96it/s, accuracy=0.0882, loss=nan][A
-Evaluating mnist:  18%|█▊        | 14/79 [00:03<00:09,  7.04it/s, accuracy=0.0882, loss=nan][A
-Evaluating mnist:  18%|█▊        | 14/79 [00:03<00:09,  7.04it/s, accuracy=0.0885, loss=nan][A
-Evaluating mnist:  19%|█▉        | 15/79 [00:03<00:09,  7.08it/s, accuracy=0.0885, loss=nan][A
-Evaluating mnist:  19%|█▉        | 15/79 [00:03<00:09,  7.08it/s, accuracy=0.0869, loss=nan][A
-Evaluating mnist:  20%|██        | 16/79 [00:03<00:08,  7.13it/s, accuracy=0.0869, loss=nan][A
-Evaluating mnist:  20%|██        | 16/79 [00:03<00:08,  7.13it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  22%|██▏       | 17/79 [00:03<00:08,  7.16it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  22%|██▏       | 17/79 [00:03<00:08,  7.16it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  23%|██▎       | 18/79 [00:03<00:08,  7.18it/s, accuracy=0.0859, loss=nan][A
-Evaluating mnist:  23%|██▎       | 18/79 [00:03<00:08,  7.18it/s, accuracy=0.0872, loss=nan][A
-Evaluating mnist:  24%|██▍       | 19/79 [00:03<00:08,  7.20it/s, accuracy=0.0872, loss=nan][A
-Evaluating mnist:  24%|██▍       | 19/79 [00:04<00:08,  7.20it/s, accuracy=0.0875, loss=nan][A
-Evaluating mnist:  25%|██▌       | 20/79 [00:04<00:08,  7.21it/s, accuracy=0.0875, loss=nan][A
-Evaluating mnist:  25%|██▌       | 20/79 [00:04<00:08,  7.21it/s, accuracy=0.0885, loss=nan][A
-Evaluating mnist:  27%|██▋       | 21/79 [00:04<00:08,  7.22it/s, accuracy=0.0885, loss=nan][A
-Evaluating mnist:  27%|██▋       | 21/79 [00:04<00:08,  7.22it/s, accuracy=0.0902, loss=nan][A
-Evaluating mnist:  28%|██▊       | 22/79 [00:04<00:07,  7.21it/s, accuracy=0.0902, loss=nan][A
-Evaluating mnist:  28%|██▊       | 22/79 [00:04<00:07,  7.21it/s, accuracy=0.0897, loss=nan][A
-Evaluating mnist:  29%|██▉       | 23/79 [00:04<00:07,  7.22it/s, accuracy=0.0897, loss=nan][A
-Evaluating mnist:  29%|██▉       | 23/79 [00:04<00:07,  7.22it/s, accuracy=0.0905, loss=nan][A
-Evaluating mnist:  30%|███       | 24/79 [00:04<00:07,  7.22it/s, accuracy=0.0905, loss=nan][A
-Evaluating mnist:  30%|███       | 24/79 [00:04<00:07,  7.22it/s, accuracy=0.0897, loss=nan][A
-Evaluating mnist:  32%|███▏      | 25/79 [00:04<00:07,  7.22it/s, accuracy=0.0897, loss=nan][A
-Evaluating mnist:  32%|███▏      | 25/79 [00:04<00:07,  7.22it/s, accuracy=0.0916, loss=nan][A
-Evaluating mnist:  33%|███▎      | 26/79 [00:04<00:07,  7.22it/s, accuracy=0.0916, loss=nan][A
-Evaluating mnist:  33%|███▎      | 26/79 [00:05<00:07,  7.22it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  34%|███▍      | 27/79 [00:05<00:07,  7.23it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  34%|███▍      | 27/79 [00:05<00:07,  7.23it/s, accuracy=0.0915, loss=nan][A
-Evaluating mnist:  35%|███▌      | 28/79 [00:05<00:07,  7.10it/s, accuracy=0.0915, loss=nan][A
-Evaluating mnist:  35%|███▌      | 28/79 [00:05<00:07,  7.10it/s, accuracy=0.0924, loss=nan][A
-Evaluating mnist:  37%|███▋      | 29/79 [00:05<00:07,  7.10it/s, accuracy=0.0924, loss=nan][A
-Evaluating mnist:  37%|███▋      | 29/79 [00:05<00:07,  7.10it/s, accuracy=0.0924, loss=nan][A
-Evaluating mnist:  38%|███▊      | 30/79 [00:05<00:06,  7.13it/s, accuracy=0.0924, loss=nan][A
-Evaluating mnist:  38%|███▊      | 30/79 [00:05<00:06,  7.13it/s, accuracy=0.0925, loss=nan][A
-Evaluating mnist:  39%|███▉      | 31/79 [00:05<00:06,  7.16it/s, accuracy=0.0925, loss=nan][A
-Evaluating mnist:  39%|███▉      | 31/79 [00:05<00:06,  7.16it/s, accuracy=0.0935, loss=nan][A
-Evaluating mnist:  41%|████      | 32/79 [00:05<00:06,  7.17it/s, accuracy=0.0935, loss=nan][A
-Evaluating mnist:  41%|████      | 32/79 [00:05<00:06,  7.17it/s, accuracy=0.0926, loss=nan][A
-Evaluating mnist:  42%|████▏     | 33/79 [00:05<00:06,  7.17it/s, accuracy=0.0926, loss=nan][A
-Evaluating mnist:  42%|████▏     | 33/79 [00:06<00:06,  7.17it/s, accuracy=0.0926, loss=nan][A
-Evaluating mnist:  43%|████▎     | 34/79 [00:06<00:06,  7.19it/s, accuracy=0.0926, loss=nan][A
-Evaluating mnist:  43%|████▎     | 34/79 [00:06<00:06,  7.19it/s, accuracy=0.0933, loss=nan][A
-Evaluating mnist:  44%|████▍     | 35/79 [00:06<00:06,  7.20it/s, accuracy=0.0933, loss=nan][A
-Evaluating mnist:  44%|████▍     | 35/79 [00:06<00:06,  7.20it/s, accuracy=0.0922, loss=nan][A
-Evaluating mnist:  46%|████▌     | 36/79 [00:06<00:05,  7.19it/s, accuracy=0.0922, loss=nan][A
-Evaluating mnist:  46%|████▌     | 36/79 [00:06<00:05,  7.19it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  47%|████▋     | 37/79 [00:06<00:05,  7.20it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  47%|████▋     | 37/79 [00:06<00:05,  7.20it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  48%|████▊     | 38/79 [00:06<00:05,  7.21it/s, accuracy=0.0923, loss=nan][A
-Evaluating mnist:  48%|████▊     | 38/79 [00:06<00:05,  7.21it/s, accuracy=0.0917, loss=nan][A
-Evaluating mnist:  49%|████▉     | 39/79 [00:06<00:05,  7.21it/s, accuracy=0.0917, loss=nan][A
-Evaluating mnist:  49%|████▉     | 39/79 [00:06<00:05,  7.21it/s, accuracy=0.0922, loss=nan][A
-Evaluating mnist:  51%|█████     | 40/79 [00:06<00:05,  7.21it/s, accuracy=0.0922, loss=nan][A
-Evaluating mnist:  51%|█████     | 40/79 [00:06<00:05,  7.21it/s, accuracy=0.0918, loss=nan][A
-Evaluating mnist:  52%|█████▏    | 41/79 [00:06<00:05,  7.21it/s, accuracy=0.0918, loss=nan][A
-Evaluating mnist:  52%|█████▏    | 41/79 [00:07<00:05,  7.21it/s, accuracy=0.0932, loss=nan][A
-Evaluating mnist:  53%|█████▎    | 42/79 [00:07<00:05,  7.21it/s, accuracy=0.0932, loss=nan][A
-Evaluating mnist:  53%|█████▎    | 42/79 [00:07<00:05,  7.21it/s, accuracy=0.0934, loss=nan][A
-Evaluating mnist:  54%|█████▍    | 43/79 [00:07<00:05,  7.19it/s, accuracy=0.0934, loss=nan][A
-Evaluating mnist:  54%|█████▍    | 43/79 [00:07<00:05,  7.19it/s, accuracy=0.0936, loss=nan][A
-Evaluating mnist:  56%|█████▌    | 44/79 [00:07<00:04,  7.19it/s, accuracy=0.0936, loss=nan][A
-Evaluating mnist:  56%|█████▌    | 44/79 [00:07<00:04,  7.19it/s, accuracy=0.0941, loss=nan][A
-Evaluating mnist:  57%|█████▋    | 45/79 [00:07<00:04,  7.19it/s, accuracy=0.0941, loss=nan][A
-Evaluating mnist:  57%|█████▋    | 45/79 [00:07<00:04,  7.19it/s, accuracy=0.0941, loss=nan][A
-Evaluating mnist:  58%|█████▊    | 46/79 [00:07<00:04,  7.18it/s, accuracy=0.0941, loss=nan][A
-Evaluating mnist:  58%|█████▊    | 46/79 [00:07<00:04,  7.18it/s, accuracy=0.0947, loss=nan][A
-Evaluating mnist:  59%|█████▉    | 47/79 [00:07<00:04,  7.18it/s, accuracy=0.0947, loss=nan][A
-Evaluating mnist:  59%|█████▉    | 47/79 [00:07<00:04,  7.18it/s, accuracy=0.0951, loss=nan][A
-Evaluating mnist:  61%|██████    | 48/79 [00:07<00:04,  7.20it/s, accuracy=0.0951, loss=nan][A
-Evaluating mnist:  61%|██████    | 48/79 [00:08<00:04,  7.20it/s, accuracy=0.0945, loss=nan][A
-Evaluating mnist:  62%|██████▏   | 49/79 [00:08<00:04,  7.20it/s, accuracy=0.0945, loss=nan][A
-Evaluating mnist:  62%|██████▏   | 49/79 [00:08<00:04,  7.20it/s, accuracy=0.0947, loss=nan][A
-Evaluating mnist:  63%|██████▎   | 50/79 [00:08<00:04,  7.19it/s, accuracy=0.0947, loss=nan][A
-Evaluating mnist:  63%|██████▎   | 50/79 [00:08<00:04,  7.19it/s, accuracy=0.0951, loss=nan][A
-Evaluating mnist:  65%|██████▍   | 51/79 [00:08<00:03,  7.20it/s, accuracy=0.0951, loss=nan][A
-Evaluating mnist:  65%|██████▍   | 51/79 [00:08<00:03,  7.20it/s, accuracy=0.0954, loss=nan][A
-Evaluating mnist:  66%|██████▌   | 52/79 [00:08<00:03,  7.20it/s, accuracy=0.0954, loss=nan][A
-Evaluating mnist:  66%|██████▌   | 52/79 [00:08<00:03,  7.20it/s, accuracy=0.0954, loss=nan][A
-Evaluating mnist:  67%|██████▋   | 53/79 [00:08<00:03,  7.20it/s, accuracy=0.0954, loss=nan][A
-Evaluating mnist:  67%|██████▋   | 53/79 [00:08<00:03,  7.20it/s, accuracy=0.0953, loss=nan][A
-Evaluating mnist:  68%|██████▊   | 54/79 [00:08<00:03,  7.20it/s, accuracy=0.0953, loss=nan][A
-Evaluating mnist:  68%|██████▊   | 54/79 [00:08<00:03,  7.20it/s, accuracy=0.0957, loss=nan][A
-Evaluating mnist:  70%|██████▉   | 55/79 [00:08<00:03,  7.20it/s, accuracy=0.0957, loss=nan][A
-Evaluating mnist:  70%|██████▉   | 55/79 [00:09<00:03,  7.20it/s, accuracy=0.0957, loss=nan][A
-Evaluating mnist:  71%|███████   | 56/79 [00:09<00:03,  7.21it/s, accuracy=0.0957, loss=nan][A
-Evaluating mnist:  71%|███████   | 56/79 [00:09<00:03,  7.21it/s, accuracy=0.0961, loss=nan][A
-Evaluating mnist:  72%|███████▏  | 57/79 [00:09<00:03,  7.20it/s, accuracy=0.0961, loss=nan][A
-Evaluating mnist:  72%|███████▏  | 57/79 [00:09<00:03,  7.20it/s, accuracy=0.0959, loss=nan][A
-Evaluating mnist:  73%|███████▎  | 58/79 [00:09<00:02,  7.20it/s, accuracy=0.0959, loss=nan][A
-Evaluating mnist:  73%|███████▎  | 58/79 [00:09<00:02,  7.20it/s, accuracy=0.096, loss=nan] [A
-Evaluating mnist:  75%|███████▍  | 59/79 [00:09<00:02,  7.20it/s, accuracy=0.096, loss=nan][A
-Evaluating mnist:  75%|███████▍  | 59/79 [00:09<00:02,  7.20it/s, accuracy=0.096, loss=nan][A
-Evaluating mnist:  76%|███████▌  | 60/79 [00:09<00:02,  7.20it/s, accuracy=0.096, loss=nan][A
-Evaluating mnist:  76%|███████▌  | 60/79 [00:09<00:02,  7.20it/s, accuracy=0.0961, loss=nan][A
-Evaluating mnist:  77%|███████▋  | 61/79 [00:09<00:02,  7.21it/s, accuracy=0.0961, loss=nan][A
-Evaluating mnist:  77%|███████▋  | 61/79 [00:09<00:02,  7.21it/s, accuracy=0.0968, loss=nan][A
-Evaluating mnist:  78%|███████▊  | 62/79 [00:09<00:02,  7.20it/s, accuracy=0.0968, loss=nan][A
-Evaluating mnist:  78%|███████▊  | 62/79 [00:10<00:02,  7.20it/s, accuracy=0.0969, loss=nan][A
-Evaluating mnist:  80%|███████▉  | 63/79 [00:10<00:02,  7.01it/s, accuracy=0.0969, loss=nan][A
-Evaluating mnist:  80%|███████▉  | 63/79 [00:10<00:02,  7.01it/s, accuracy=0.0969, loss=nan][A
-Evaluating mnist:  81%|████████  | 64/79 [00:10<00:02,  7.06it/s, accuracy=0.0969, loss=nan][A
-Evaluating mnist:  81%|████████  | 64/79 [00:10<00:02,  7.06it/s, accuracy=0.097, loss=nan] [A
-Evaluating mnist:  82%|████████▏ | 65/79 [00:10<00:01,  7.11it/s, accuracy=0.097, loss=nan][A
-Evaluating mnist:  82%|████████▏ | 65/79 [00:10<00:01,  7.11it/s, accuracy=0.0971, loss=nan][A
-Evaluating mnist:  84%|████████▎ | 66/79 [00:10<00:01,  7.14it/s, accuracy=0.0971, loss=nan][A
-Evaluating mnist:  84%|████████▎ | 66/79 [00:10<00:01,  7.14it/s, accuracy=0.0972, loss=nan][A
-Evaluating mnist:  85%|████████▍ | 67/79 [00:10<00:01,  7.18it/s, accuracy=0.0972, loss=nan][A
-Evaluating mnist:  85%|████████▍ | 67/79 [00:10<00:01,  7.18it/s, accuracy=0.0973, loss=nan][A
-Evaluating mnist:  86%|████████▌ | 68/79 [00:10<00:01,  7.20it/s, accuracy=0.0973, loss=nan][A
-Evaluating mnist:  86%|████████▌ | 68/79 [00:10<00:01,  7.20it/s, accuracy=0.0974, loss=nan][A
-Evaluating mnist:  87%|████████▋ | 69/79 [00:10<00:01,  7.22it/s, accuracy=0.0974, loss=nan][A
-Evaluating mnist:  87%|████████▋ | 69/79 [00:11<00:01,  7.22it/s, accuracy=0.0974, loss=nan][A
-Evaluating mnist:  89%|████████▊ | 70/79 [00:11<00:01,  7.22it/s, accuracy=0.0974, loss=nan][A
-Evaluating mnist:  89%|████████▊ | 70/79 [00:11<00:01,  7.22it/s, accuracy=0.0975, loss=nan][A
-Evaluating mnist:  90%|████████▉ | 71/79 [00:11<00:01,  7.23it/s, accuracy=0.0975, loss=nan][A
-Evaluating mnist:  90%|████████▉ | 71/79 [00:11<00:01,  7.23it/s, accuracy=0.0973, loss=nan][A
-Evaluating mnist:  91%|█████████ | 72/79 [00:11<00:00,  7.23it/s, accuracy=0.0973, loss=nan][A
-Evaluating mnist:  91%|█████████ | 72/79 [00:11<00:00,  7.23it/s, accuracy=0.0977, loss=nan][A
-Evaluating mnist:  92%|█████████▏| 73/79 [00:11<00:00,  7.22it/s, accuracy=0.0977, loss=nan][A
-Evaluating mnist:  92%|█████████▏| 73/79 [00:11<00:00,  7.22it/s, accuracy=0.098, loss=nan] [A
-Evaluating mnist:  94%|█████████▎| 74/79 [00:11<00:00,  7.23it/s, accuracy=0.098, loss=nan][A
-Evaluating mnist:  94%|█████████▎| 74/79 [00:11<00:00,  7.23it/s, accuracy=0.0976, loss=nan][A
-Evaluating mnist:  95%|█████████▍| 75/79 [00:11<00:00,  7.23it/s, accuracy=0.0976, loss=nan][A
-Evaluating mnist:  95%|█████████▍| 75/79 [00:11<00:00,  7.23it/s, accuracy=0.098, loss=nan] [A
-Evaluating mnist:  96%|█████████▌| 76/79 [00:11<00:00,  7.23it/s, accuracy=0.098, loss=nan][A
-Evaluating mnist:  96%|█████████▌| 76/79 [00:11<00:00,  7.23it/s, accuracy=0.0979, loss=nan][A
-Evaluating mnist:  97%|█████████▋| 77/79 [00:11<00:00,  7.23it/s, accuracy=0.0979, loss=nan][A
-Evaluating mnist:  97%|█████████▋| 77/79 [00:12<00:00,  7.23it/s, accuracy=0.0981, loss=nan][A
-Evaluating mnist:  99%|█████████▊| 78/79 [00:12<00:00,  7.23it/s, accuracy=0.0981, loss=nan][A
-Evaluating mnist:  99%|█████████▊| 78/79 [00:12<00:00,  7.23it/s, accuracy=0.098, loss=nan] [A
-                                                                                           [AEvaluating tasks:  86%|████████▌ | 6/7 [01:24<00:14, 14.68s/it]
-Evaluating dtd:   0%|          | 0/15 [00:00<?, ?it/s][A
-Evaluating dtd:   0%|          | 0/15 [00:02<?, ?it/s, accuracy=0.312, loss=nan][A
-Evaluating dtd:   7%|▋         | 1/15 [00:02<00:33,  2.39s/it, accuracy=0.312, loss=nan][A
-Evaluating dtd:   7%|▋         | 1/15 [00:02<00:33,  2.39s/it, accuracy=0.156, loss=nan][A
-Evaluating dtd:  13%|█▎        | 2/15 [00:02<00:13,  1.07s/it, accuracy=0.156, loss=nan][A
-Evaluating dtd:  13%|█▎        | 2/15 [00:02<00:13,  1.07s/it, accuracy=0.104, loss=nan][A
-Evaluating dtd:  20%|██        | 3/15 [00:02<00:07,  1.55it/s, accuracy=0.104, loss=nan][A
-Evaluating dtd:  20%|██        | 3/15 [00:02<00:07,  1.55it/s, accuracy=0.0781, loss=nan][A
-Evaluating dtd:  27%|██▋       | 4/15 [00:02<00:04,  2.24it/s, accuracy=0.0781, loss=nan][A
-Evaluating dtd:  27%|██▋       | 4/15 [00:02<00:04,  2.24it/s, accuracy=0.0625, loss=nan][A
-Evaluating dtd:  33%|███▎      | 5/15 [00:02<00:03,  2.99it/s, accuracy=0.0625, loss=nan][A
-Evaluating dtd:  33%|███▎      | 5/15 [00:03<00:03,  2.99it/s, accuracy=0.0521, loss=nan][A
-Evaluating dtd:  40%|████      | 6/15 [00:03<00:02,  3.74it/s, accuracy=0.0521, loss=nan][A
-Evaluating dtd:  40%|████      | 6/15 [00:03<00:02,  3.74it/s, accuracy=0.0446, loss=nan][A
-Evaluating dtd:  47%|████▋     | 7/15 [00:03<00:01,  4.44it/s, accuracy=0.0446, loss=nan][A
-Evaluating dtd:  47%|████▋     | 7/15 [00:03<00:01,  4.44it/s, accuracy=0.0391, loss=nan][A
-Evaluating dtd:  53%|█████▎    | 8/15 [00:03<00:01,  5.07it/s, accuracy=0.0391, loss=nan][A
-Evaluating dtd:  53%|█████▎    | 8/15 [00:03<00:01,  5.07it/s, accuracy=0.0347, loss=nan][A
-Evaluating dtd:  60%|██████    | 9/15 [00:03<00:01,  5.60it/s, accuracy=0.0347, loss=nan][A
-Evaluating dtd:  60%|██████    | 9/15 [00:03<00:01,  5.60it/s, accuracy=0.0312, loss=nan][A
-Evaluating dtd:  67%|██████▋   | 10/15 [00:03<00:00,  6.03it/s, accuracy=0.0312, loss=nan][A
-Evaluating dtd:  67%|██████▋   | 10/15 [00:03<00:00,  6.03it/s, accuracy=0.0284, loss=nan][A
-Evaluating dtd:  73%|███████▎  | 11/15 [00:03<00:00,  6.36it/s, accuracy=0.0284, loss=nan][A
-Evaluating dtd:  73%|███████▎  | 11/15 [00:03<00:00,  6.36it/s, accuracy=0.026, loss=nan] [A
-Evaluating dtd:  80%|████████  | 12/15 [00:03<00:00,  6.61it/s, accuracy=0.026, loss=nan][A
-Evaluating dtd:  80%|████████  | 12/15 [00:04<00:00,  6.61it/s, accuracy=0.024, loss=nan][A
-Evaluating dtd:  87%|████████▋ | 13/15 [00:04<00:00,  6.80it/s, accuracy=0.024, loss=nan][A
-Evaluating dtd:  87%|████████▋ | 13/15 [00:04<00:00,  6.80it/s, accuracy=0.0223, loss=nan][A
-Evaluating dtd:  93%|█████████▎| 14/15 [00:04<00:00,  6.92it/s, accuracy=0.0223, loss=nan][A
-Evaluating dtd:  93%|█████████▎| 14/15 [00:04<00:00,  6.92it/s, accuracy=0.0213, loss=nan][A
-                                                                                          [AEvaluating tasks: 100%|██████████| 7/7 [01:28<00:00, 11.41s/it]Evaluating tasks: 100%|██████████| 7/7 [01:28<00:00, 12.68s/it]
-[01/19/26 12:13:05] INFO     Evaluation Result: {'model_info':   taskpool.py:350
-                             {'trainable_params': 87456000,                     
-                             'all_params': 87456000,                            
-                             'trainable_percentage': 1.0},                      
-                             'stanford-cars': {'accuracy':                      
-                             0.005471956450492144, 'loss': nan},                
-                             'resisc45': {'accuracy':                           
-                             0.026825396344065666, 'loss': nan},                
-                             'eurosat': {'accuracy':                            
-                             0.1174074038863182, 'loss': nan},                  
-                             'svhn': {'accuracy':                               
-                             0.06699446588754654, 'loss': nan},                 
-                             'gtsrb': {'accuracy':                              
-                             0.0047505940310657024, 'loss':                     
-                             nan}, 'mnist': {'accuracy':                        
-                             0.09799999743700027, 'loss': nan},                 
-                             'dtd': {'accuracy':                                
-                             0.021276595070958138, 'loss': nan},                
-                             'average': {'accuracy':                            
-                             0.04867520130106381, 'loss': nan}}                 
-model_info:
-  trainable_params: 87456000
-  all_params: 87456000
-  trainable_percentage: 1.0
-stanford-cars:
-  accuracy: 0.005471956450492144
-  loss: nan
-resisc45:
-  accuracy: 0.026825396344065666
-  loss: nan
-eurosat:
-  accuracy: 0.1174074038863182
-  loss: nan
-svhn:
-  accuracy: 0.06699446588754654
-  loss: nan
-gtsrb:
-  accuracy: 0.0047505940310657024
-  loss: nan
-mnist:
-  accuracy: 0.09799999743700027
-  loss: nan
-dtd:
-  accuracy: 0.021276595070958138
-  loss: nan
-average:
-  accuracy: 0.04867520130106381
-  loss: nan

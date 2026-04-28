@@ -13,7 +13,12 @@ Merging multiple expert models offers a promising approach for performing multi-
 install the latest version in development
 
 ```bash
+conda create -n DOGE python==3.10 -y
+conda activate DOGE
 pip install -e . # install the package in editable mode
+pip install transformers==5.0.0
+pip uninstall torch torchvision torchaudio
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 # Change to your fitting cuda version
 ```
 
 ## Project Structure
@@ -34,22 +39,15 @@ The project is structured as follows:
 
 ## How to run the experiments
 
- - For DOGE TA, run the following command:
+ - For DOGE TA ViT-L-14 7 tasks, run the following command:
 
      ```shell
-     fusion_bench \
-    method=DOGE_TA/DOGE_TA \
-    modelpool=CLIPVisionModelPool/clip-vit-base-patch32_TA8_model_only \
-    taskpool=CLIPVisionModelTaskPool/clip-vit-classification_TA8
+     bash doge_ta.sh
      ```
-- For DOGE AM, run the following command:
+- For Fisher Merging ViT-L-14 7 tasks, run the following command:
 
      ```shell
-     fusion_bench \
-    method=adamerging \
-    method.name=clip_layer_wise_adamerging_doge_ta \
-    modelpool=CLIPVisionModelPool/clip-vit-base-patch32_TA8 \
-    taskpool=CLIPVisionModelTaskPool/clip-vit-classification_TA8
+    bash fisher.sh
      ```
 ## Citation
 If you find DOGE useful for your research and applications, please cite using this BibTeX:
